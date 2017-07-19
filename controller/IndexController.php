@@ -5,8 +5,7 @@
  *  
  */
 // подключение модели 
-//include_once '../models/CategoriesModel.php';
-
+include_once '../models/CategoriesModel.php';
 function testAction() {
     echo 'IndexController.php > testAction';
 }
@@ -18,8 +17,10 @@ function testAction() {
  */
 
 function indexAction($smarty) {
-     //$categories = get_Categories($link);
-     //var_dump($categories);
+   $rsCategories =  getAllMainCatsChildrens($db);
+    d( $rsCategories);
+    
+    
     
     $smarty->assign('pageTitle', 'Главная страница сайта');
     

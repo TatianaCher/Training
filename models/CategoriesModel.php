@@ -4,17 +4,30 @@
  * Модель для таблицы категорий (categories)
  */
 
+function getAllMainCatsChildrens(){
 
-function get_Categories ($link){
-    $query = "SELECT * FROM  categories ";
+   $sql = "SELECT * FROM my_shop.categories WHERE parent_id = 0";
+   
+   $rs = mysqli_query($sql);
+   
+//   echo '<pre>';
+//   var_dump($rs );
+//   echo '</pre>';
+   
+   $smartyRs = array();
+   while ($row = mysqli_fetch_assoc($rs)) {
+       $smartyRs[] = $row;
+       
+       //echo 'id = '. $row['id']. '<br />';  
+   }
+   return $smartyRs;
 
-    $result = mysqli_query($link, $query);
-  
-    $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
-    return $data;
-      
-  }
-  
- $categories = get_Categories($db);
-var_dump($categories);
+}
+ //getAllMainCatsChildrens($db);
+//$result = mysqli_query($link, $query);
+//$data = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+
+ # $categories = getAllMainCatsChildrens($db);
+
  
