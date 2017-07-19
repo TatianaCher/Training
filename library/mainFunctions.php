@@ -41,3 +41,4 @@ function d($value = null, $die = 1) {
     echo '</pre>';
     if ($die) die;
 }
+
