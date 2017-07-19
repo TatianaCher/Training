@@ -41,3 +41,16 @@ function d($value = null, $die = 1) {
     echo '</pre>';
     if ($die) die;
 }
+
+/**
+ * Преобразование результата работы функции выборки в ассщциативный массив
+ * @param recordset $result набор строк -результат работы SELECT
+ * @return array Description
+ */
+//function createSmartyRsArray($result){
+//   
+//    $result = mysqli_query($GLOBALS['db'],$query);
+//   
+//   $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
+//   return $data;
+//}

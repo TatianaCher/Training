@@ -18,12 +18,12 @@ function testAction() {
 
 function indexAction($smarty) {
    
-    $categories = get_Categories($db);
-    var_dump($categories);
+    $categories = get_Categories();
+   var_dump($categories);
 
     
     $smarty->assign('pageTitle', 'Главная страница сайта');
-    
+    $smarty->assign('categories', $categories);
     loadTemplate($smarty, 'header');
     loadTemplate($smarty, 'index');
     loadTemplate($smarty, 'footer');
