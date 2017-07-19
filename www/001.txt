@@ -1,0 +1,33 @@
+<?php
+
+/* 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+#определяем с каким контролерром будет работать
+$controllerName = isset($_GET['controller'])? usfirst($_GET['controller']):'Index';
+echo 'Подключаемый php файл (Контроллер)='. $controllerName. '<br/>';
+
+# определяем с какой функцией будет работать
+$actionName = isset($_GET['action'])? $_GET['action'] :'test';
+echo 'Функция формирующая страницу(Экшн)='. $actionName. '<br/>';
+
+//# подключаем контроллер
+//include_once '../controller/'. $controllerName. 'Controller.php';
+
+//# формируем название функции
+//$function = $actionName . 'Action';
+//echo 'Полное название вызываемой функции ='. $function . '<br/>';
+//#Как функция понимает include_once переходит в контролер
+//$function(); 
+ # Для чего это нужно??? // константы для обращение к контроллерам
+define('Pathprefix', '../controller/');
+define('PathPosfix', 'Controller.php');
+
+function loadPage($controllerName, $actionName = 'index') {
+    include_once Pathprefix. $controllerName. PathPosfix;
+    $function = $actionName . 'Action';
+    $function();
+}
+loadPage($controllerName,

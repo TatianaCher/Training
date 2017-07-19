@@ -1,0 +1,47 @@
+//подключение к БД
+$db = mysqli_connect($host, $user, $password, $dbname);
+
+if (mysqli_connect_errno()){
+    echo 'Ошибка подключения к MySql ('.mysqli_connect_errno().'): ' . mysqli_connect_error();
+    exit();
+}
+
+было вариант устарел 
+ 
+
+//подключение к БД
+$db = mysqli_connect($host, $user, $password);
+
+if ( ! $db){
+    echo 'Ошибка подключения к MySql';
+    exit();
+}
+
+if ( ! mysqli_select_db($dbname, $db)) {
+    echo "Ошибка подключения к БД: ($dbname)"; 
+    exit();
+}
+
+ ##################
+
+include_once '..models/CategoriesModel.php';
+function testAction() {
+    echo 'IndexController.php > testAction';
+}
+
+
+/**
+ * формирование главной страницы
+ * @param type $smarty шаблонизатор
+ */
+
+function indexAction($smarty) {
+    $rsCategories =  get_AllMainCats();
+    
+    $smarty->assign('pageTitle', 'Главная страница сайта');
+    
+    loadTemplate($smarty, 'header');
+    loadTemplate($smarty, 'index');
+    loadTemplate($smarty, 'footer');
+    
+}
