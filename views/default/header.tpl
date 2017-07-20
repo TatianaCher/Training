@@ -17,4 +17,4 @@
   {include file='leftcolum.tpl'}      
         
     <div id="centerColum">
-        centerColum
+      

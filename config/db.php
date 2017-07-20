@@ -13,12 +13,12 @@ $charset = "utf8";
 
 
 //подключение к БД
-$db = mysqli_connect($host, $user, $password, $dbname);
+$db = new mysqli($host, $user, $password, $dbname);
 
-if (mysqli_connect_errno()){
-    echo 'Ошибка подключения к MySql ('.mysqli_connect_errno().'): ' . mysqli_connect_error();
-    exit();
-}
- 
+//if (mysqli_connect_errno()){
+//    echo 'Ошибка подключения к MySql ('.mysqli_connect_errno().'): ' . mysqli_connect_error();
+//    exit();
+//}
+// 
 
- 
+ if ($db->connect_errno)   die('Не удалось подключится к MySQL.') ;

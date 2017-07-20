@@ -47,10 +47,13 @@ function d($value = null, $die = 1) {
  * @param recordset $result набор строк -результат работы SELECT
  * @return array Description
  */
-//function createSmartyRsArray($result){
-//   
-//    $result = mysqli_query($GLOBALS['db'],$query);
-//   
-//   $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
-//   return $data;
-//}
+
+function createSmartyRsArray($result){
+ 
+$smartyRs = array ();
+         while ($row = $result->fetch_assoc()){
+         $smartyRs[]=$row;
+}
+
+return $smartyRs;
+}

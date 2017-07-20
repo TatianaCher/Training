@@ -8,43 +8,46 @@
  * Получение дочерних категорий для категории $catId
  * @param type integer $catId ID категорий
  */
-//function get_ChildrenForCat ($catId){
-//    $query = "SELECT * FROM my_shop.categories
-//              WHERE parent_id = '{$catId}'";
-//    $result = mysqli_query($GLOBALS['db'],$query);
-//    return createSmartyRsArray($result);
-//}
-// 
+function get_ChildrenForCat ($catId){
+    $query = "SELECT * FROM my_shop.categories
+              WHERE parent_id = '{$catId}'";
+              //d($query);
+              
+    global $db;
+    $result = $db->query($query);
+     //d($result);
+     return createSmartyRsArray($result);   
 
-
-
-
-
+     }
+   
 
 /** 
  * Получить главные категории с привязками к дочерним
- * @param type $link
+ * 
  * @return type $data возвращается массив с названиеями категорий
  */
 function get_Categories(){
-
-   $query = "SELECT * FROM my_shop.categories WHERE parent_id = 0";
+    
+    $query = "SELECT * FROM my_shop.categories WHERE parent_id = 0";
+        global $db;
+        $result = $db->query($query);
+   //$result = mysqli_query($GLOBALS['db'],$query);
+   // while ($row = $rs->fetch_assoc())
+        
+   // $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
+        
+        //while ($row = current($data)){
+        $smartyRs = array ();
+         while ($row = $result->fetch_assoc()){
+            $rsChildren = get_ChildrenForCat($row ['id']);
+            
+            if($rsChildren){
+            $row['children'] = $rsChildren;
    
-   $result = mysqli_query($GLOBALS['db'],$query);
-   
-   $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
-   
-//   $catId = $data['id'];
-//   $rsChildren = get_ChildrenForCat($catId);
-//   if($rsChildren){
-//       $catId['children'] = $rsChildren;
-//   }
-   
-   return $data;
-   
-
+       }
+ 
+   $smartyRs[]=$row;
 }
-
-//$categories = get_Categories($db);
-//var_dump($categories);
-
+//d($smartyRs);
+return $smartyRs;
+}

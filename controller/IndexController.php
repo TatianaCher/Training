@@ -19,11 +19,16 @@ function testAction() {
 function indexAction($smarty) {
    
     $categories = get_Categories();
-   var_dump($categories);
+  // var_dump($categories);
+    $rsProducrs = getLastProducts(16);
 
     
     $smarty->assign('pageTitle', 'Главная страница сайта');
     $smarty->assign('categories', $categories);
+    //d($rsProducrs);
+    $smarty->assign('rsProducrs', $rsProducrs);
+    
+    
     loadTemplate($smarty, 'header');
     loadTemplate($smarty, 'index');
     loadTemplate($smarty, 'footer');
