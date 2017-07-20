@@ -52,9 +52,14 @@ function get_Categories(){
 return $smartyRs;
 }
 
-
+/**
+ * Получить данные из категории по id
+ * @global type $db
+ * @param ineger $catID ID катугории
+ * @return array массив строка категории
+ */
 function getCatById($catID){
-    $catID = intval($catID);
+    $catID = intval($catID); // !!!sql
     $query = "SELECT * FROM my_shop.categories WHERE id ='{$catID}'";
         global $db;
         $result = $db->query($query);

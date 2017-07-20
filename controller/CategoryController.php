@@ -9,10 +9,19 @@
 
 function indexAction($smarty){
    
-$catID = isset($_GET['id'])? usfirst($_GET['id']):null;
-    if($catID == null) exit(); // if( !$catID) exit();
+    $catId = isset($_GET['id']) ? $_GET['id'] : null;
+    if($catId == null) exit(); // if( !$catID) exit();
 
-    //echo "Test_ {$catID}";
-    
-    $rsCategory = getCatById($catID);
+    $rsCategory = getCatById($catId);
+    //d($rsCategory);
+    /**
+     * если главная категория, то показываем дочернии категории, 
+     * иначе показываем товар
+     */
+    if($rsCategory['parent_id'] == 0){
+        $rsChildCats = get_ChildrenForCat($catId);
+    } else {
+        $rsProducts = getProductsByCat($catId);//#3.1.2
+    }
+    //d($rsChildCats);
 }
