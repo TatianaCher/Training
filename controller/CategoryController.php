@@ -11,7 +11,10 @@ function indexAction($smarty){
    
     $catId = isset($_GET['id']) ? $_GET['id'] : null;
     if($catId == null) exit(); // if( !$catID) exit();
-
+    
+    
+    $rsProducts = null;
+    $rsChildCats = null;
     $rsCategory = getCatById($catId);
     //d($rsCategory);
     /**
@@ -19,9 +22,24 @@ function indexAction($smarty){
      * иначе показываем товар
      */
     if($rsCategory['parent_id'] == 0){
-        $rsChildCats = get_ChildrenForCat($catId);
+        $rsChildCats = getChildrenForCat($catId);
     } else {
         $rsProducts = getProductsByCat($catId);//#3.1.2
     }
-    //d($rsChildCats);
+    //d($rsProducts);
+    $rsCategories = getAllMainCatsWithChildren(); //$categories = get_Categories();
+     
+    $smarty->assign('pageTitle', 'Товары категории' . $rsCategory['name']);
+    
+    $smarty->assign('rsCategory', $rsCategory);
+    $smarty->assign('rsProducts', $rsProducts);
+    $smarty->assign('rsChildCats', $rsChildCats);//#3.1.2
+    
+    $smarty->assign('rsCategories', $rsCategories);
+    //d($rsProducts);
+    
+    loadTemplate($smarty, 'header');
+    loadTemplate($smarty, 'category');
+    loadTemplate($smarty, 'footer');
+     
 }

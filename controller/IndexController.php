@@ -18,13 +18,13 @@ function testAction() {
 
 function indexAction($smarty) {
    
-    $categories = get_Categories();
-  // var_dump($categories);
+    $rsCategories = getAllMainCatsWithChildren(); //get_Categories(); $categories
+ 
     $rsProducts = getLastProducts(16);
 
     
     $smarty->assign('pageTitle', 'Главная страница сайта');
-    $smarty->assign('categories', $categories);
+    $smarty->assign('rsCategories', $rsCategories);
     
     $smarty->assign('rsProducts', $rsProducts);
     //d($rsProducts);

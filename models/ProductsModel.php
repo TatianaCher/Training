@@ -22,3 +22,14 @@ function getLastProducts($limits = NULL) {
           return createSmartyRsArray($result);
     
 }
+
+
+function  getProductsByCat($itemId){
+    
+    $itemId = intval($itemId);
+    $query = "SELECT * FROM my_shop.products 
+              where category_id ='{$itemId}'";
+    global $db;
+    $result = $db->query($query);
+    return createSmartyRsArray($result);
+}

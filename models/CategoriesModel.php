@@ -8,7 +8,7 @@
  * Получение дочерних категорий для категории $catId
  * @param type integer $catId ID категорий
  */
-function get_ChildrenForCat ($catId){
+function getChildrenForCat ($catId){
     $query = "SELECT * FROM my_shop.categories
               WHERE parent_id = '{$catId}'";
               //d($query);
@@ -26,7 +26,7 @@ function get_ChildrenForCat ($catId){
  * 
  * @return type $data возвращается массив с названиеями категорий
  */
-function get_Categories(){
+function getAllMainCatsWithChildren(){
     
     $query = "SELECT * FROM my_shop.categories WHERE parent_id = 0";
         global $db;
@@ -39,7 +39,7 @@ function get_Categories(){
         //while ($row = current($data)){
         $smartyRs = array ();
          while ($row = $result->fetch_assoc()){
-            $rsChildren = get_ChildrenForCat($row ['id']);
+            $rsChildren = getChildrenForCat($row ['id']);
             
             if($rsChildren){
             $row['children'] = $rsChildren;
@@ -55,12 +55,12 @@ return $smartyRs;
 /**
  * Получить данные из категории по id
  * @global type $db
- * @param ineger $catID ID катугории
+ * @param ineger $catId ID катугории
  * @return array массив строка категории
  */
-function getCatById($catID){
-    $catID = intval($catID); // !!!sql
-    $query = "SELECT * FROM my_shop.categories WHERE id ='{$catID}'";
+function getCatById($catId){
+    $catId = intval($catId); // !!!sql #3.1 min 10
+    $query = "SELECT * FROM my_shop.categories WHERE id ='{$catId}'";
         global $db;
         $result = $db->query($query);
         return  $result->fetch_assoc();
