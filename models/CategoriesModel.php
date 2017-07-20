@@ -51,3 +51,12 @@ function get_Categories(){
 //d($smartyRs);
 return $smartyRs;
 }
+
+
+function getCatById($catID){
+    $catID = intval($catID);
+    $query = "SELECT * FROM my_shop.categories WHERE id ='{$catID}'";
+        global $db;
+        $result = $db->query($query);
+        return  $result->fetch_assoc();
+}
