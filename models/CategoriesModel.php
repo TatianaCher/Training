@@ -55,7 +55,7 @@ return $smartyRs;
 /**
  * Получить данные из категории по id
  * @global type $db
- * @param ineger $catId ID катугории
+ * @param ineger $catId ID категории
  * @return array массив строка категории
  */
 function getCatById($catId){

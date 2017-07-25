@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-11, created on 2017-07-20 17:08:21
+/* Smarty version 3.1.32-dev-11, created on 2017-07-25 12:39:02
   from "C:\OpenServer\domains\MyShop02\views\default\header.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-11',
-  'unifunc' => 'content_5970b9552c3f15_96861063',
+  'unifunc' => 'content_597711b6259ae6_64385964',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '3c46d232c7b8c00edcb671d8d67887ed492a2625' => 
     array (
       0 => 'C:\\OpenServer\\domains\\MyShop02\\views\\default\\header.tpl',
-      1 => 1500559278,
+      1 => 1500975532,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:leftcolum.tpl' => 1,
   ),
 ),false)) {
-function content_5970b9552c3f15_96861063 (Smarty_Internal_Template $_smarty_tpl) {
+function content_597711b6259ae6_64385964 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <html>
     <head>
@@ -29,7 +29,8 @@ function content_5970b9552c3f15_96861063 (Smarty_Internal_Template $_smarty_tpl)
 </title>
         <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['TemplateWebPath']->value;?>
 css/main.css" type="text/css"/>
-        <link rel="stylesheet" href="/static/css/bootstrap.css">
+        <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['TemplateWebPath']->value;?>
+css/bootstrap.css" type="text/css"/>
         
     </head>
     

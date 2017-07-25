@@ -26,7 +26,7 @@ function getLastProducts($limits = NULL) {
 
 function  getProductsByCat($itemId){
     
-    $itemId = intval($itemId);
+    $itemId = intval($itemId);// образование в число
     $query = "SELECT * FROM my_shop.products 
               where category_id ='{$itemId}'";
     global $db;

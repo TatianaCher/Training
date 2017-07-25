@@ -13,7 +13,7 @@ function indexAction($smarty){
     if($catId == null) exit(); // if( !$catID) exit();
     
     
-    $rsProducts = null;
+    $rsProducts = null; //странно, но ошибки нет
     $rsChildCats = null;
     $rsCategory = getCatById($catId);
     //d($rsCategory);
@@ -33,7 +33,7 @@ function indexAction($smarty){
     
     $smarty->assign('rsCategory', $rsCategory);
     $smarty->assign('rsProducts', $rsProducts);
-    $smarty->assign('rsChildCats', $rsChildCats);//#3.1.2
+    $smarty->assign('rsChildCats', $rsChildCats);//#3.1.2 min 8 sec 13
     
     $smarty->assign('rsCategories', $rsCategories);
     //d($rsProducts);

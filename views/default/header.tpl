@@ -2,7 +2,7 @@
     <head>
         <title>{$pageTitle}</title>
         <link rel="stylesheet" href="{$TemplateWebPath}css/main.css" type="text/css"/>
-        <link rel="stylesheet" href="/static/css/bootstrap.css">
+        <link rel="stylesheet" href="{$TemplateWebPath}css/bootstrap.css" type="text/css"/>
         
     </head>
     
