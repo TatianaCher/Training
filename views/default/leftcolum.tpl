@@ -4,7 +4,6 @@
   
   <div id="leftColum">
        
-      
       <div id="leftMenu">
             <div class="menuCaption">меню:</div>
             {foreach $rsCategories as $item}

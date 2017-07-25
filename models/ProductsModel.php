@@ -11,8 +11,11 @@
 
 function getLastProducts($limits = NULL) {
     
-    $query = "SELECT * FROM my_shop.categories
-              ORDER BY id DESC";
+    $query = "SELECT * FROM my_shop.products
+              ORDER BY id_products DESC"; 
+               /*была ошибка: указанs неправильная таблица, 
+               * а также название столбца, поэтому возникала ошибка параметра $row в mianFunction
+               */
          if($limits){
              $query .= " LIMIT {$limits}";
          }

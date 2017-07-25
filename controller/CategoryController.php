@@ -7,6 +7,10 @@
 //include_once '../models/CategoriesModel.php';
 //include_once '../models/ProductsModel.php';
 
+/**
+ * формирование страницы категорий
+ * @param object $smarty шаблонизатор
+ */
 function indexAction($smarty){
    
     $catId = isset($_GET['id']) ? $_GET['id'] : null;
