@@ -42,7 +42,7 @@ function getAllMainCatsWithChildren(){
             $rsChildren = getChildrenForCat($row ['id']);
             
             if($rsChildren){
-            $row['children'] = $rsChildren;
+            $row['children'] = $rsChildren; // lesson 2.3.2 min 2:47
    
        }
  

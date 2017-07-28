@@ -1,4 +1,4 @@
-{*страница категории*}
+{*страница категории*} {*3.1.2 min 12. 48*}
 <h1>Товары категории {$rsCategory['name']}</h1>
  
 {foreach $rsProducts as $item name=products }
