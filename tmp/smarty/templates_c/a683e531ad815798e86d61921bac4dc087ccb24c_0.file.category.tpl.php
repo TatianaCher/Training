@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-11, created on 2017-07-25 22:56:10
+/* Smarty version 3.1.32-dev-11, created on 2017-07-31 21:44:49
   from "C:\OpenServer\domains\MyShop02\views\default\category.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-11',
-  'unifunc' => 'content_5977a25a94f665_06410432',
+  'unifunc' => 'content_597f7aa1ca6030_27337059',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a683e531ad815798e86d61921bac4dc087ccb24c' => 
     array (
       0 => 'C:\\OpenServer\\domains\\MyShop02\\views\\default\\category.tpl',
-      1 => 1501012441,
+      1 => 1501526666,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5977a25a94f665_06410432 (Smarty_Internal_Template $_smarty_tpl) {
+function content_597f7aa1ca6030_27337059 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
  
 <h1>Товары категории <?php echo $_smarty_tpl->tpl_vars['rsCategory']->value['name'];?>
@@ -35,12 +35,12 @@ foreach ($_from as $_smarty_tpl->tpl_vars['item']->value) {
 $_smarty_tpl->tpl_vars['__smarty_foreach_products']->value['iteration']++;
 ?>
     <div style="float: left; padding: 0px 30px 40px 0px;">
-        <a href="/product/<?php echo $_smarty_tpl->tpl_vars['item']->value['id'];?>
+        <a href="/products/<?php echo $_smarty_tpl->tpl_vars['item']->value['id_products'];?>
 /" >
-            <img src="/products/<?php echo $_smarty_tpl->tpl_vars['item']->value['image'];?>
-/" width="100"/>
+            <img src="/images/products/<?php echo $_smarty_tpl->tpl_vars['item']->value['image'];?>
+" width="100"/>
         </a> <br />
-        <a href="/images/product/<?php echo $_smarty_tpl->tpl_vars['item']->value['id'];?>
+        <a href="/products/<?php echo $_smarty_tpl->tpl_vars['item']->value['id_products'];?>
 /" ><?php echo $_smarty_tpl->tpl_vars['item']->value['name'];?>
 </a>
     </div>

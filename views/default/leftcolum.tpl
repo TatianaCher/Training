@@ -12,8 +12,11 @@
                 {if isset($item['children'])}  {*2.3.2 min4:12*}
                     {foreach $item['children'] as $itemChild}
                          --<a href="/?controller=category&id={$itemChild['id']}"> {$itemChild['name']}</a> <br />
+                    
                     {/foreach}
+                    
                 {/if}
+                
             {/foreach}
         </div>
     </div>
