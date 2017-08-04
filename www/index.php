@@ -3,8 +3,8 @@
 include_once '../config/config.php';// Инициализация настроек
 
 include_once '../config/db.php';// Инициализация бд
-include_once '../models/CategoriesModel.php';
 include_once '../models/ProductsModel.php';
+include_once '../models/CategoriesModel.php';
 include_once '../library/mainFunctions.php'; //Основные функции
 #определяем с каким контролерром будет работать
 

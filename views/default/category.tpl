@@ -1,12 +1,12 @@
 {*страница категории*} {*3.1.2 min 12. 48*}
-<h1>Товары категории {$rsCategory['name']}</h1>
+<h2>Товары категории {$rsCategory['name']}</h2>
  
 {foreach $rsProducts as $item name=products }
     <div style="float: left; padding: 0px 30px 40px 0px;">
-        <a href="/products/{$item['id_products']}/" >
+        <a href="/?controller=product&id={$item['id_products']}" >
             <img src="/images/products/{$item['image']}" width="100"/>
         </a> <br />
-        <a href="/products/{$item['id_products']}/" >{$item['name']}</a>
+        <a href="/?controller=product&id={$item['id_products']}" >{$item['name']}</a>
     </div>
     
     
@@ -19,7 +19,7 @@
  {/foreach}
 {foreach $rsChildCats as $item name=childCats}
      
-   <h2><a href="/category/{$item['id']}/" >{$item['name']}</a> </h2>
+   <h2><a href="?controller=category&id={$item['id']}" >{$item['name']}</a> </h2>
 {*3.1.2 min 14. 48*}
 
  {/foreach}

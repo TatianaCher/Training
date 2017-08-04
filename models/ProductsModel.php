@@ -36,3 +36,22 @@ function  getProductsByCat($itemId){
     $result = $db->query($query);
     return createSmartyRsArray($result);
 }
+/**
+ * получить данные продукта id
+ * @global type $db подключение к базе данных
+ * @param integer  $itemId id продукта
+ * @return array массив данных продукта
+ */
+function getProductById($itemId) {
+    
+    $itemId = intval($itemId);
+    $query = "SELECT * FROM my_shop.products 
+              where id_products = '{$itemId}'";
+  //d($itemId); 
+    global $db;
+    
+    $result = $db->query($query);
+   
+    return  $result->fetch_assoc(); // разобраться с получением данных 3.3.2 - 2 min 38 sec 
+    
+}

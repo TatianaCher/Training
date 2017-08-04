@@ -2,10 +2,11 @@
 
 /* 
  * Контролер страницы категорий (/category/1)
+ *  вернула не ЧПУ controller=category&id
  */
-
-//include_once '../models/CategoriesModel.php';
 //include_once '../models/ProductsModel.php';
+//include_once '../models/CategoriesModel.php';
+
 
 /**
  * формирование страницы категорий
@@ -16,9 +17,10 @@ function indexAction($smarty){
     $catId = isset($_GET['id']) ? $_GET['id'] : null;
     if($catId == null) exit(); // if( !$catID) exit();
     
+    echo "Тест - {$catId}";
+    //$rsProducts = null; //странно, но ошибки нет
+    //$rsChildCats = null;
     
-    $rsProducts = null; //странно, но ошибки нет
-    $rsChildCats = null;
     $rsCategory = getCatById($catId);
     //d($rsCategory);
     /**

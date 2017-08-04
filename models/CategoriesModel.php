@@ -63,5 +63,6 @@ function getCatById($catId){
     $query = "SELECT * FROM my_shop.categories WHERE id ='{$catId}'";
         global $db;
         $result = $db->query($query);
+       // d($result);
         return  $result->fetch_assoc();
 }
