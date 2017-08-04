@@ -47,11 +47,11 @@ function getProductById($itemId) {
     $itemId = intval($itemId);
     $query = "SELECT * FROM my_shop.products 
               where id_products = '{$itemId}'";
-  //d($itemId); 
+  
     global $db;
     
     $result = $db->query($query);
-   
+    //d($result);
     return  $result->fetch_assoc(); // разобраться с получением данных 3.3.2 - 2 min 38 sec 
     
 }
