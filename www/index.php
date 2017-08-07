@@ -22,10 +22,16 @@ $controllerName = isset($_GET['controller'])? ucfirst($_GET['controller']):'Inde
  
 # определяем с какой функцией будет работать
 $actionName = isset($_GET['action'])? $_GET['action'] :'index';
- echo count($_SESSION['cart']);
+ 
 // инициализируем переменную шаблонизатора  cartCntItems количества элементов в корзине,функция count
-$smarty->assing('cartCntItems', count($session_start)); // не работает
+//$elements=count($_SESSION['cart']);
 
+$smarty->assign('cartCntItems', count($_SESSION['cart'])); // не работает, добавила {$cartCntItems|@count}
+ // вычисляем количество элементов корзине $cartCntItems
+
+/*$elements=count($array);
+$this->smarty->assign("elements", $elements);
+ */
        
 loadPage($smarty, $controllerName, $actionName);
  

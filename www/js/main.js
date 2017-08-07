@@ -18,9 +18,9 @@ function addToCart(itemId){
         url: "/cart/addtocart/" + itemId + '/', // передача параметров, обращаемся к CartController, 
         //к addtocartAction  и передаем get параметр
         dataType: 'json', // тип данных , что то вроде массива для js
-        success: function (data) { // функция, пришла data (результат json ) 
+        success: function(data) { // функция, пришла data (результат json_encode($resData) ) 
             if (data['success']){
-                $('#cartCntItems').html(data['cntItems']); // меняет значение в корзине на количество
+                $('#cartCntItems').html(data['cntItems']); // меняет ссылку на значение количеста элементов в корзине  
                 
                 $('#addCart_' + itemId).hide();// меняет ссылку "добавить/ удалить"
                 $('#removeCart_' + itemId).show();
