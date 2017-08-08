@@ -1,11 +1,12 @@
 <?php
+session_name('MyShop');// имя сессии
 session_start();// стартуеем сессию
 
 
  
-// если в сессии нет массива корзины то создаем его
+// если в сессии нет массива корзины, то создаем его
 if (!isset($_SESSION['cart'])){
-    $_SESSION['cart'] = array();
+    $_SESSION['cart'] = array(); //инициализация переменной и прсваение массива
 }
 
 
@@ -32,6 +33,6 @@ $smarty->assign('cartCntItems', count($_SESSION['cart'])); // не работа�
 /*$elements=count($array);
 $this->smarty->assign("elements", $elements);
  */
-       
+var_dump($_SESSION);     
 loadPage($smarty, $controllerName, $actionName);
  

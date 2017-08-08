@@ -5,7 +5,7 @@
  Стоимость: {$rsProduct['price']}
  
 
- <a id="addCart_{$rsProduct['price']}" href="#" onclick="addToCart({$rsProduct['id']});return false" alt ="Добавить в корзину"> Добавить в корзину </a>  
+ <a id="addCart_{$rsProduct['id_products']}" href="#" onclick="addToCart({$rsProduct['id_products']});return false" alt ="Добавить в корзину"> Добавить в корзину </a>  
  <p> Описание<br /> {$rsProduct['description']}</p>
  
   
