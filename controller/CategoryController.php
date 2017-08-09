@@ -18,11 +18,11 @@ function indexAction($smarty){
     if($catId == null) exit(); // if( !$catID) exit();
     
     echo "Тест - {$catId}";
-    //$rsProducts = null; //странно, но ошибки нет
-    //$rsChildCats = null;
+    $rsProducts = null; //странно, но ошибки нет
+    $rsChildCats = null;
     
     $rsCategory = getCatById($catId);
-    //d($rsCategory);
+     
     /**
      * если главная категория, то показываем дочернии категории, 
      * иначе показываем товар
@@ -32,7 +32,7 @@ function indexAction($smarty){
     } else {
         $rsProducts = getProductsByCat($catId);//#3.1.2
     }
-    //d($rsProducts);
+     
     $rsCategories = getAllMainCatsWithChildren(); //$categories = get_Categories();
      
     $smarty->assign('pageTitle', 'Товары категории' . $rsCategory['name']);
@@ -42,10 +42,15 @@ function indexAction($smarty){
     $smarty->assign('rsChildCats', $rsChildCats);//#3.1.2 min 8 sec 13
     
     $smarty->assign('rsCategories', $rsCategories);
-    //d($rsProducts);
+    
     
     loadTemplate($smarty, 'header');
     loadTemplate($smarty, 'category');
     loadTemplate($smarty, 'footer');
-     
+    //var_dump ($catId); 
+   // var_dump ($rsCategory);
+    //var_dump ($rsChildCats);
+   // var_dump($rsCategories);
+   // var_dump($rsProducts);
+    //d($smarty);
 }

@@ -17,6 +17,7 @@ function loadPage($smarty, $controllerName, $actionName = 'index') {
      
     $function = $actionName . 'Action';
     $function($smarty);
+   // var_dump($smarty);
 }
 /**
  * Загрузка шаблона
@@ -26,7 +27,9 @@ function loadPage($smarty, $controllerName, $actionName = 'index') {
  */
 function loadTemplate($smarty, $templateName){
    
-    $smarty->display($templateName . TemplatePostfix);
+    $smarty->display($templateName . TemplatePostfix); 
+    #в теле функции вызываем метод display передаем имя шаблона 
+    # и присваевам постфикс .tpl 
 }
 /**
  * /Функция отладки Останавливает работу програмы, 

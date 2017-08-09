@@ -21,7 +21,7 @@
         </div>
         
         <div class="menuCaption">Корзина</div> 
-        <a href="/cart/" title="Перейти в козину">В корзине</a>
+        <a href="/?controller=cart&action=addtocart" title="Перейти в корзину">В корзине</a>
         <span id="cartCntItems"> {*#3.5.2 3 min 35, количество элементов в корзине*}
             {if $cartCntItems > 0} {$cartCntItems} {else} пусто {/if}
         </span>

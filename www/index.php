@@ -17,11 +17,11 @@ include_once '../config/db.php';// Инициализация бд
 include_once '../models/ProductsModel.php';
 include_once '../models/CategoriesModel.php';
 include_once '../library/mainFunctions.php'; //Основные функции
-#определяем с каким контролерром будет работать
 
+#определяем с каким контролерром будет работать
 $controllerName = isset($_GET['controller'])? ucfirst($_GET['controller']):'Index';
  
-# определяем с какой функцией будет работать
+# определяем с какой функцией будет работать в контроллере
 $actionName = isset($_GET['action'])? $_GET['action'] :'index';
  
 // инициализируем переменную шаблонизатора  cartCntItems количества элементов в корзине,функция count
@@ -33,6 +33,10 @@ $smarty->assign('cartCntItems', count($_SESSION['cart'])); // не работа�
 /*$elements=count($array);
 $this->smarty->assign("elements", $elements);
  */
-var_dump($_SESSION);     
+//var_dump(count($_SESSION['cart']));  
+//var_dump ($actionName);
+//var_dump($controllerName);
+
+
 loadPage($smarty, $controllerName, $actionName);
  

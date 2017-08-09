@@ -39,5 +39,7 @@ function indexAction($smarty){ // формирование старанички 
     loadTemplate($smarty, 'header'); // шаблон заголовка
     loadTemplate($smarty, 'product'); //шаблон центра страницы продуктов
     loadTemplate($smarty, 'footer'); // 'шаблоны страниц'
-     
+     // var_dump ($itemId); 
+     // var_dump ($rsProduct); 
+     // var_dump ($rsCategories);
 }

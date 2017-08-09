@@ -17,6 +17,9 @@
 
 function addtocartAction(){
     $itemId = isset($_GET['id']) ? intval($_GET['id']) : NULL;
+    
+    echo "Тест - {$itemId} . страница корзины ";
+    
     if (!$itemId) {
         return FALSE;
     }
@@ -24,7 +27,7 @@ function addtocartAction(){
     $resData = array(); #3.5 min 4. 00; пустой массив; результирующие данные для js скрипта
     //если значение не найденно, то добавляем
     //d($resData);
-    if (isset($_SESSION['cart']) && array_search($itemId, $_SESSION['cart']) === FALSE){
+    if (isset($_SESSION['cart']) && array_search($itemId, $_SESSION) === FALSE){
             $_SESSION['cart'][] = $itemId;//добавляем данный элемент в массив корзины
             $resData['cntItems'] = count($_SESSION['cart']);#в переменную $resData инициализирум
             #ключ cntItems количество елементов в нашей корзине и берем количество элементов 
@@ -36,5 +39,7 @@ function addtocartAction(){
     }
     //d($resData);
     echo json_encode($resData); # преобразуем массив в json данные 
-     
+    // var_dump ($itemId); 
+   //  var_dump ($resData); 
+      
 }

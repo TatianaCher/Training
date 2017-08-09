@@ -29,7 +29,7 @@ function indexAction($smarty) {
     $smarty->assign('rsProducts', $rsProducts);
     
     
-    loadTemplate($smarty, 'header');
+    loadTemplate($smarty, 'header'); //вызываем объект smarty и какой шаблон нужно отработать, в этой строке 'header'
     loadTemplate($smarty, 'index');
     loadTemplate($smarty, 'footer');
      
