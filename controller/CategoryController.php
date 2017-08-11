@@ -15,6 +15,7 @@
 function indexAction($smarty){
    
     $catId = isset($_GET['id']) ? $_GET['id'] : null;
+    
     if($catId == null) exit(); // if( !$catID) exit();
     
     echo "Тест - {$catId}";

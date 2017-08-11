@@ -37,9 +37,9 @@ function addtocartAction(){
     } else {
         $resData ['success'] = 0;
     }
-    //d($resData);
-    echo json_encode($resData); # преобразуем массив в json данные 
-    // var_dump ($itemId); 
-   //  var_dump ($resData); 
+     echo  $resData;
+    //echo json_encode($resData); # преобразуем массив в json данные 
+    
+    
       
 }

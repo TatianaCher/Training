@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-11, created on 2017-08-04 14:34:38
+/* Smarty version 3.1.32-dev-11, created on 2017-08-11 14:27:23
   from "C:\OpenServer\domains\MyShop02\views\default\category.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-11',
-  'unifunc' => 'content_59845bcee28ff4_27624920',
+  'unifunc' => 'content_598d949b79cdc7_67533205',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a683e531ad815798e86d61921bac4dc087ccb24c' => 
     array (
       0 => 'C:\\OpenServer\\domains\\MyShop02\\views\\default\\category.tpl',
-      1 => 1501846471,
+      1 => 1502450815,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_59845bcee28ff4_27624920 (Smarty_Internal_Template $_smarty_tpl) {
+function content_598d949b79cdc7_67533205 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
  
 <h2>Товары категории <?php echo $_smarty_tpl->tpl_vars['rsCategory']->value['name'];?>
@@ -35,12 +35,12 @@ foreach ($_from as $_smarty_tpl->tpl_vars['item']->value) {
 $_smarty_tpl->tpl_vars['__smarty_foreach_products']->value['iteration']++;
 ?>
     <div style="float: left; padding: 0px 30px 40px 0px;">
-        <a href="/?controller=product&id=<?php echo $_smarty_tpl->tpl_vars['item']->value['id_products'];?>
+        <a href="/?controller=product&id=<?php echo $_smarty_tpl->tpl_vars['item']->value['id'];?>
 " >
             <img src="/images/products/<?php echo $_smarty_tpl->tpl_vars['item']->value['image'];?>
 " width="100"/>
         </a> <br />
-        <a href="/?controller=product&id=<?php echo $_smarty_tpl->tpl_vars['item']->value['id_products'];?>
+        <a href="/?controller=product&id=<?php echo $_smarty_tpl->tpl_vars['item']->value['id'];?>
 " ><?php echo $_smarty_tpl->tpl_vars['item']->value['name'];?>
 </a>
     </div>

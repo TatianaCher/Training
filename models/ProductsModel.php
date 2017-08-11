@@ -12,8 +12,8 @@
 function getLastProducts($limits = NULL) {
     
     $query = "SELECT * FROM my_shop.products
-              ORDER BY id_products DESC"; 
-               /*была ошибка: указанs неправильная таблица, 
+              ORDER BY id DESC"; 
+               /*была ошибка: указана неправильная таблица, 
                * а также название столбца, поэтому возникала ошибка параметра $row в mianFunction
                */
          if($limits){
@@ -46,7 +46,7 @@ function getProductById($itemId) {
     
     $itemId = intval($itemId);
     $query = "SELECT * FROM my_shop.products 
-              where id_products = '{$itemId}'";
+              where id = '{$itemId}'";
   
     global $db;
     

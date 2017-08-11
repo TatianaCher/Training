@@ -27,7 +27,7 @@ $actionName = isset($_GET['action'])? $_GET['action'] :'index';
 // инициализируем переменную шаблонизатора  cartCntItems количества элементов в корзине,функция count
 //$elements=count($_SESSION['cart']);
 
-$smarty->assign('cartCntItems', count($_SESSION['cart'])); // не работает, добавила {$cartCntItems|@count}
+$smarty->assign('cartCntItems', count($_SESSION['cart'])); 
  // вычисляем количество элементов корзине $cartCntItems
 
 /*$elements=count($array);

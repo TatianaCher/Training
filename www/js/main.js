@@ -16,7 +16,7 @@ function addToCart(itemId){
     $.ajax({
         type: 'POST', //метод пост
         //async: false, //синхронность запроса , выключаем, так как запрос не асинхронен
-        url: '/?controller=cart&action=addtocartAction()/' + itemId + '/', // передача параметров, обращаемся к CartController, 
+        url: '/?controller=cart&action=addtocart' + itemId + '/', // передача параметров, обращаемся к CartController, 
         //к addtocartAction  и передаем get параметр
         dataType: 'json', // тип данных , что то вроде массива для js
         success: function(data) { // функция, пришла data (результат json_encode($resData) ) 
@@ -29,10 +29,6 @@ function addToCart(itemId){
             }
           
         }
-       //error: function (request, status, error) {
-           // console.log(request.responseText);
-      //  } 
-      
     });
    
 } 
