@@ -72,7 +72,7 @@ function removefromcartAction(){ // вызов из main.js
     if ($key !== false){
         unset($_SESSION['cart'][$key]);// удаление продукта, который получен в $key
         $resData['success'] = 1;  // удалилось
-        $resData['cntItems'] = count($_SESSION['cart']); // 
+        $resData['cntItems'] = count($_SESSION['cart']); // счетчик
         
     } else {
         $resData['success'] = 0; // не удалилось

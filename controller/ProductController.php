@@ -20,7 +20,7 @@ function indexAction($smarty){ // формирование старанички 
     $itemId = isset($_GET['id']) ? $_GET['id'] : null;
     //d($itemId);
    
-    if($itemId == null) exit(); // if( !$itemId) exit();
+    if($itemId == null) {exit();} // if( !$itemId) exit();
     echo "Тест - {$itemId} . Cтраница продуктов";
     // получить данные продукта
     $rsProduct = getProductById($itemId); // набор данных определенного продукта из функции
@@ -29,14 +29,14 @@ function indexAction($smarty){ // формирование старанички 
     $rsCategories = getAllMainCatsWithChildren();  // набор данных категории с их дочерними параметрами для формирования главной строки сайта
      // инициализация переменных smarty 
    
-    #
+    
     #  #3.6 min 13 sec 27
     $smarty->assign('itemsInCart', 0); // есть ли в корзине itemsIn, его нет = 0
-    if(in_array($itemId, $_SESSION)) { # если есть в массиве 'cart', удаляю в $_SESSION этот фрагмент ['cart']
+    if(in_array($itemId, $_SESSION['cart'])) { # если есть в массиве 'cart'  в $_SESSION этот фрагмент ['cart'],  то удаляю, то не удаляю
         $smarty->assign('itemsInCart', 1); //  то itemsInCart = 1: переменная "флаг"
     }
     
-    $smarty->assign('pageTitle', ''); // заголовок страници передаем пустую строку
+    $smarty->assign('pageTitle', ''); // заголовок страниц передаем пустую строку
     
     $smarty->assign('rsCategories', $rsCategories);//формирование левого меню
     $smarty->assign('rsProduct', $rsProduct);//передать шаблон данного продукта 

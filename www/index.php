@@ -28,8 +28,5 @@ $actionName = isset($_GET['action'])? $_GET['action'] :'index';
 $smarty->assign('cartCntItems', count($_SESSION['cart'])); 
  // вычисляем количество элементов корзине $cartCntItems
 
-
-
-
 loadPage($smarty, $controllerName, $actionName);
  
