@@ -15,9 +15,10 @@ function addToCart(itemId){
     console.log(itemId); // отладка
     $.ajax({
         type: 'POST', //метод пост
-        //async: false, //синхронность запроса , выключаем, так как запрос не асинхронен
-        url: '/?controller=cart&action=addtocart' + itemId + '/', // передача параметров, обращаемся к CartController, 
-        //к addtocartAction  и передаем get параметр
+        async: false, //синхронность запроса , выключаем, так как запрос не асинхронен
+        url: '?controller=cart&action=addtocart&id=' + itemId + '/', // передача параметров, обращаемся к CartController, 
+        //к addtocartAction  и передаем get параметр 
+        //url: "/cart/addtocart/"+itemId+'/',
         dataType: 'json', // тип данных , что то вроде массива для js
         success: function(data) { // функция, пришла data (результат json_encode($resData) ) 
              
@@ -28,11 +29,39 @@ function addToCart(itemId){
                 $('#removeCart_' + itemId).show();
             }
           
-        }
+        },
+       error: function (request, status, error) {
+          console.log(request.responseText);
+        } 
+      
     });
    
 } 
 
-
+function removeFromCart(itemId){
+    console.log("Js - removeFromCart("+ itemId +")");//отладка
+    console.log(itemId); // отладка
+    $.ajax({
+        type: 'POST', //метод пост
+        async: false, //синхронность запроса , выключаем, так как запрос не асинхронен
+        url: '?controller=cart&action=removefromcart&id=' + itemId + '/', // передача параметров, обращаемся к CartController, 
+        //к removefromcartAction  и передаем get параметр 
         //url: "/cart/addtocart/"+itemId+'/',
-    
+        dataType: 'json', // тип данных  , что то вроде массива для js
+        success: function(data) { // функция, пришла data (результат json_encode($resData) ) 
+             
+            if (data['success']){
+                $('#cartCntItems').html(data['cntItems']); // меняет ссылку на значение количества элементов в корзине  
+                
+                $('#addCart_' + itemId).show();// меняет ссылку "удавить/ добавить"
+                $('#removeCart_' + itemId).hide();
+            }
+          
+        },
+       error: function (request, status, error) {
+          console.log(request.responseText);
+        } 
+      
+    });
+       
+ } 

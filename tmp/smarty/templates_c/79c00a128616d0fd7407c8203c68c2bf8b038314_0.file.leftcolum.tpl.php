@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-11, created on 2017-08-11 14:40:35
+/* Smarty version 3.1.32-dev-11, created on 2017-08-11 17:14:17
   from "C:\OpenServer\domains\MyShop02\views\default\leftcolum.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-11',
-  'unifunc' => 'content_598d97b3cd1f40_94429395',
+  'unifunc' => 'content_598dbbb97bba26_23368772',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '79c00a128616d0fd7407c8203c68c2bf8b038314' => 
     array (
       0 => 'C:\\OpenServer\\domains\\MyShop02\\views\\default\\leftcolum.tpl',
-      1 => 1502451567,
+      1 => 1502460842,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_598d97b3cd1f40_94429395 (Smarty_Internal_Template $_smarty_tpl) {
+function content_598dbbb97bba26_23368772 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
   
    
@@ -67,7 +67,8 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);
         </div>
         
         <div class="menuCaption">Корзина</div> 
-        <a href="/?controller=cart&action=addtocart" title="Перейти в корзину">В корзине</a>
+        <a href="/?controller=cart&action=addtocart&id=<?php echo $_smarty_tpl->tpl_vars['cartCntItems']->value;?>
+" title="Перейти в корзину">В корзине</a>
         <span id="cartCntItems"> 
             <?php if ($_smarty_tpl->tpl_vars['cartCntItems']->value > 0) {?> <?php echo $_smarty_tpl->tpl_vars['cartCntItems']->value;?>
  <?php } else { ?> пусто <?php }?>

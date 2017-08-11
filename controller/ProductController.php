@@ -21,7 +21,7 @@ function indexAction($smarty){ // формирование старанички 
     //d($itemId);
    
     if($itemId == null) exit(); // if( !$itemId) exit();
-    echo "Тест - {$itemId} . страница продуктов";
+    echo "Тест - {$itemId} . Cтраница продуктов";
     // получить данные продукта
     $rsProduct = getProductById($itemId); // набор данных определенного продукта из функции
  
