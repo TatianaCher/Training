@@ -1,0 +1,6 @@
+Alexey Bril8 месяцев назад
+GET - это не функция, это глобальный массив в котором хранятся параметры переданные в браузерной строке. Например, если вы зайдете на сайт по адресу site.ru/?controller=index&action=something, в массиве GET будут храниться данные  index и something, а чтобы получить их, можно обратиться вот так: $_GET['controller'] и  $_GET['action']?
+ 
+ 
+ Fatal error: Uncaught Error: Call to undefined function addtocart/11/Action() in C:\OpenServer\domains\MyShop02\library\mainFunctions.php on line <i>19</i></th></tr>
+<tr><th align='left' bgcolor='#f57900' colspan="5"><span style='background-color: #cc0000; color: #fce94f; font-size: x-large;'>( ! )</span> Error: Call to undefined function addtocart/11/Action() in C:\OpenServer\domains\MyShop02\library\mainFunctions.php on line <i>19</i></th></tr>

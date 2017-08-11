@@ -1,5 +1,4 @@
 <?php
-session_name('MyShop');// имя сессии
 session_start();// стартуеем сессию
 
 
@@ -25,17 +24,11 @@ $controllerName = isset($_GET['controller'])? ucfirst($_GET['controller']):'Inde
 $actionName = isset($_GET['action'])? $_GET['action'] :'index';
  
 // инициализируем переменную шаблонизатора  cartCntItems количества элементов в корзине,функция count
-//$elements=count($_SESSION['cart']);
 
 $smarty->assign('cartCntItems', count($_SESSION['cart'])); 
  // вычисляем количество элементов корзине $cartCntItems
 
-/*$elements=count($array);
-$this->smarty->assign("elements", $elements);
- */
-//var_dump(count($_SESSION['cart']));  
-//var_dump ($actionName);
-//var_dump($controllerName);
+
 
 
 loadPage($smarty, $controllerName, $actionName);

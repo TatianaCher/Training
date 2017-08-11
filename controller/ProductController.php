@@ -28,6 +28,14 @@ function indexAction($smarty){ // формирование старанички 
     // получить все категории 
     $rsCategories = getAllMainCatsWithChildren();  // набор данных категории с их дочерними параметрами для формирования главной строки сайта
      // инициализация переменных smarty 
+   
+    #
+    #  #3.6 min 13 sec 27
+    $smarty->assign('itemsInCart', 0); // есть ли в корзине itemsIn, его нет = 0
+    if(in_array($itemId, $_SESSION)) { # если есть в массиве 'cart', удаляю в $_SESSION этот фрагмент ['cart']
+        $smarty->assign('itemsInCart', 1); //  то itemsInCart = 1: переменная "флаг"
+    }
+    
     $smarty->assign('pageTitle', ''); // заголовок страници передаем пустую строку
     
     $smarty->assign('rsCategories', $rsCategories);//формирование левого меню
@@ -39,7 +47,5 @@ function indexAction($smarty){ // формирование старанички 
     loadTemplate($smarty, 'header'); // шаблон заголовка
     loadTemplate($smarty, 'product'); //шаблон центра страницы продуктов
     loadTemplate($smarty, 'footer'); // 'шаблоны страниц'
-     // var_dump ($itemId); 
-     // var_dump ($rsProduct); 
-     // var_dump ($rsCategories);
+     
 }

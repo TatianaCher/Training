@@ -1,0 +1,6 @@
+1 Строка url в php
+
+?controller=cart&action=addtocart&id=' + itemId + '/' подорвалась вот на этом id=
+
+http://php.net/manual/ru/function.parse-url.php
+http://php.net/manual/ru/function.urlencode.php

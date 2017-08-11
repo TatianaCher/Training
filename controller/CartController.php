@@ -12,7 +12,7 @@
  * Добавление продукта в корзину
  * 
  * @param  integer id GET параметр - ID добавляемого продукта
- * @return json информация об опирации (успех,  количество элементов в корзине)
+ * @return json информация об операции (успех,  количество элементов в корзине)
  */
 
 #3.5
@@ -42,10 +42,10 @@ function addtocartAction(){
             
         $_SESSION['cart'][] = $itemId;//добавляем данный элемент в массив корзины
         $resData['cntItems'] = count($_SESSION['cart']);#в переменную $resData инициализирум
-        #ключ cntItems количество елементов в нашей корзине и берем количество элементов 
+        #ключ cntItems количество елементов в нашей корзине из элементов 
         #нашего массива'cart'
                       
-        $resData['success'] = 1;// ключ 'success' успешно отработала функция, товар в корзине
+        $resData['success'] = 1; 
     } else {
         $resData ['success'] = 0;
     }
@@ -55,26 +55,29 @@ function addtocartAction(){
 }
 
 /**
+ * #3.6 min 1
  * Удаление продукта в корзину
  * 
- * @param  integer id GET параметр - ID удаляемого продукта
- * @return json информация об опирации (успех,  количество элементов в корзине)
+ * @param  integer 'id' GET-параметр - ID удаляемого продукта
+ * @return json ключ 'success' информация об операции удаление, прошла = 1,   ничего не произошло = 0, 
+ * ключ 'cntItems' количество елементов в корзине 
  */
-function removefromcartAction(){
+function removefromcartAction(){ // вызов из main.js
     $itemId = isset($_GET['id']) ? intval($_GET['id']) : NULL;
        
-    if (!$itemId)  exit();
+    if (! $itemId) {exit();}
 
     $resData = array(); #3.6 0 min 47 sec
-    $key = array_search($itemId, $_SESSION['cart']);
+    $key = array_search($itemId, $_SESSION['cart']);// в массиве Сесии 'cart' находим $itemId - id продукта
     if ($key !== false){
-        unset($_SESSION['cart'][$key]);
-        $resData['cntItems'] = count($_SESSION['cart']); 
-        $resData['success'] = 1; 
+        unset($_SESSION['cart'][$key]);// удаление продукта, который получен в $key
+        $resData['success'] = 1;  // удалилось
+        $resData['cntItems'] = count($_SESSION['cart']); // 
+        
     } else {
-        $resData ['success'] = 0;
+        $resData['success'] = 0; // не удалилось
     }
-    d($resData);
+    //d($resData);
     echo json_encode($resData); # преобразуем массив в json данные 
     }
             
