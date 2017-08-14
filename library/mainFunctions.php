@@ -11,6 +11,10 @@
  * @param type $actionName название функции обработки страницы
  * @param type $smarty  переменная шаблонизатора
  */
+ 
+
+
+
 
 function loadPage($smarty, $controllerName, $actionName = 'index') {
     include_once PathPrefix. $controllerName. PathPosfix;

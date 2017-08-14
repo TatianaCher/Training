@@ -1,13 +1,13 @@
 <?php
-session_start();// стартуеем сессию
+session_start();
 
-
- 
+$_SESSION['cart']; 
 // если в сессии нет массива корзины, то создаем его
 if (!isset($_SESSION['cart'])){
-    $_SESSION['cart'] = array(); //инициализация переменной и прсваение массива
+    $_SESSION['cart'] = array(); //инициализация переменной и присваение массива
 }
 
+error_reporting(E_ALL);
 
 
 include_once '../config/config.php';// Инициализация настроек
@@ -15,6 +15,8 @@ include_once '../config/config.php';// Инициализация настрое
 include_once '../config/db.php';// Инициализация бд
 include_once '../models/ProductsModel.php';
 include_once '../models/CategoriesModel.php';
+include_once '../models/UsersModel.php';
+//include_once '../models/OrderModel.php';
 include_once '../library/mainFunctions.php'; //Основные функции
 
 #определяем с каким контролерром будет работать

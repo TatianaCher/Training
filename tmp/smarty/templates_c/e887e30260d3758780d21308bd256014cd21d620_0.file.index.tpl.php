@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-11, created on 2017-08-08 13:29:31
+/* Smarty version 3.1.32-dev-11, created on 2017-08-13 00:27:54
   from "C:\OpenServer\domains\MyShop02\views\default\index.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-11',
-  'unifunc' => 'content_5989928b90a1f8_67450499',
+  'unifunc' => 'content_598f72dae57710_51147731',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'e887e30260d3758780d21308bd256014cd21d620' => 
     array (
       0 => 'C:\\OpenServer\\domains\\MyShop02\\views\\default\\index.tpl',
-      1 => 1502188169,
+      1 => 1502573262,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5989928b90a1f8_67450499 (Smarty_Internal_Template $_smarty_tpl) {
+function content_598f72dae57710_51147731 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
 <h1> Главная страница </h1>
@@ -34,12 +34,12 @@ foreach ($_from as $_smarty_tpl->tpl_vars['item']->value) {
 $_smarty_tpl->tpl_vars['__smarty_foreach_products']->value['iteration']++;
 ?>
     <div style="float:left; padding: 0px 30px 40px 0px;">
-        <a href="?controller=category&id=<?php echo $_smarty_tpl->tpl_vars['item']->value['category_id'];?>
+        <a href="/?controller=category&id=<?php echo $_smarty_tpl->tpl_vars['item']->value['category_id'];?>
 " >
             <img src="/images/products/<?php echo $_smarty_tpl->tpl_vars['item']->value['image'];?>
 " width="100">
         </a> <br />
-        <a href="?controller=category&id=<?php echo $_smarty_tpl->tpl_vars['item']->value['category_id'];?>
+        <a href="/?controller=category&id=<?php echo $_smarty_tpl->tpl_vars['item']->value['category_id'];?>
 " ><?php echo $_smarty_tpl->tpl_vars['item']->value['name'];?>
 </a>
     </div>

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-11, created on 2017-08-11 14:27:23
+/* Smarty version 3.1.32-dev-11, created on 2017-08-13 00:27:59
   from "C:\OpenServer\domains\MyShop02\views\default\category.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-11',
-  'unifunc' => 'content_598d949b79cdc7_67533205',
+  'unifunc' => 'content_598f72df87ace2_78173746',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a683e531ad815798e86d61921bac4dc087ccb24c' => 
     array (
       0 => 'C:\\OpenServer\\domains\\MyShop02\\views\\default\\category.tpl',
-      1 => 1502450815,
+      1 => 1502573185,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_598d949b79cdc7_67533205 (Smarty_Internal_Template $_smarty_tpl) {
+function content_598f72df87ace2_78173746 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
  
 <h2>Товары категории <?php echo $_smarty_tpl->tpl_vars['rsCategory']->value['name'];?>
@@ -68,7 +68,7 @@ if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['item']->value) {
 ?>
      
-   <h2><a href="?controller=category&id=<?php echo $_smarty_tpl->tpl_vars['item']->value['id'];?>
+   <h2><a href="/?controller=category&id=<?php echo $_smarty_tpl->tpl_vars['item']->value['id'];?>
 " ><?php echo $_smarty_tpl->tpl_vars['item']->value['name'];?>
 </a> </h2>
 

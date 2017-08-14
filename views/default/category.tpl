@@ -19,7 +19,7 @@
  {/foreach}
 {foreach $rsChildCats as $item name=childCats}
      
-   <h2><a href="?controller=category&id={$item['id']}" >{$item['name']}</a> </h2>
+   <h2><a href="/?controller=category&id={$item['id']}" >{$item['name']}</a> </h2>
 {*3.1.2 min 14. 48*}
 
  {/foreach}

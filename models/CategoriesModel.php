@@ -8,6 +8,9 @@
  * Получение дочерних категорий для категории $catId
  * @param type integer $catId ID категорий
  */
+
+
+
 function getChildrenForCat ($catId){
     $query = "SELECT * FROM my_shop.categories
               WHERE parent_id = '{$catId}'";

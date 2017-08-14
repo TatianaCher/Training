@@ -48,10 +48,5 @@ function indexAction($smarty){
     loadTemplate($smarty, 'header');
     loadTemplate($smarty, 'category');
     loadTemplate($smarty, 'footer');
-    //var_dump ($catId); 
-   // var_dump ($rsCategory);
-    //var_dump ($rsChildCats);
-   // var_dump($rsCategories);
-   // var_dump($rsProducts);
-    //d($smarty);
+    
 }

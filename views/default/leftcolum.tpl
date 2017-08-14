@@ -20,8 +20,27 @@
             {/foreach}
         </div>
         
+        <div id="registerBox">
+            <div class="menuCaption showHidden" onclick="showregisterBox();">Регистрация</div>
+            <div id="registrBoxHidden">
+                email:<br />
+                <input type="text" id="email" name="email" value=""/><br/>
+                пароль <br />
+                <input type="password" id="pwd1" name="pwd1" value=""/><br/>
+                повторить пароль:<br/>
+                <input type="password" id="pwd2" name="pwd2" value=""/><br/>
+                <input type="button" onclick="registerNewUser();" value="Зарегистрироваться"/><br/>
+            </div>
+         
+        </div>
+        
+        
+        
+        
+        
+        
         <div class="menuCaption">Корзина</div> 
-        <a href="/?controller=cart&action=addtocart&id={$cartCntItems}" title="Перейти в корзину">В корзине</a>
+        <a href="/?controller=cart&action=index&id={$cartCntItems}" title="Перейти в корзину">В корзине</a>
         <span id="cartCntItems"> {*#3.5.2 3 min 35, количество элементов в корзине*}
             {if $cartCntItems > 0} {$cartCntItems} {else} пусто {/if}
         </span>

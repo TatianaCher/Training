@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-11, created on 2017-08-11 17:14:17
+/* Smarty version 3.1.32-dev-11, created on 2017-08-14 21:41:37
   from "C:\OpenServer\domains\MyShop02\views\default\leftcolum.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-11',
-  'unifunc' => 'content_598dbbb97bba26_23368772',
+  'unifunc' => 'content_5991eee14ae206_85305633',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '79c00a128616d0fd7407c8203c68c2bf8b038314' => 
     array (
       0 => 'C:\\OpenServer\\domains\\MyShop02\\views\\default\\leftcolum.tpl',
-      1 => 1502460842,
+      1 => 1502735969,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_598dbbb97bba26_23368772 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5991eee14ae206_85305633 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
   
    
@@ -66,8 +66,27 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);
 
         </div>
         
+        <div id="registerBox">
+            <div class="menuCaption showHidden" onclick="showregisterBox();">Регистрация</div>
+            <div id="registrBoxHidden">
+                email:<br />
+                <input type="text" id="email" name="email" value=""/><br/>
+                пароль <br />
+                <input type="password" id="pwd1" name="pwd1" value=""/><br/>
+                повторить пароль:<br/>
+                <input type="password" id="pwd2" name="pwd2" value=""/><br/>
+                <input type="button" onclick="registerNewUser();" value="Зарегистрироваться"/><br/>
+            </div>
+         
+        </div>
+        
+        
+        
+        
+        
+        
         <div class="menuCaption">Корзина</div> 
-        <a href="/?controller=cart&action=addtocart&id=<?php echo $_smarty_tpl->tpl_vars['cartCntItems']->value;?>
+        <a href="/?controller=cart&action=index&id=<?php echo $_smarty_tpl->tpl_vars['cartCntItems']->value;?>
 " title="Перейти в корзину">В корзине</a>
         <span id="cartCntItems"> 
             <?php if ($_smarty_tpl->tpl_vars['cartCntItems']->value > 0) {?> <?php echo $_smarty_tpl->tpl_vars['cartCntItems']->value;?>

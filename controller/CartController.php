@@ -30,18 +30,11 @@ function addtocartAction(){
 
     $resData = array(); #3.5 min 4. 00; пустой массив; результирующие данные для js скрипта
     //если значение не найденно, то добавляем 
-    
-    if (isset($_SESSION['cart']) && array_search($itemId, $_SESSION) === FALSE){
-        # У меня тоже была проблема с изменением кол-ва продуктов в корзине и появлением кнопки
-        #  "удалить из корзины." Почитав логи мы видим ошибку "PHP Warning:  array_search() 
-        #  expects parameter 2 to be array, integer given in ...."
-        #  Идем в документацию и читаем как работает функция - http://www.php.su/array_search . 
-        #  Отсюда видно что поиск идет по ВСЕМУ массиву, 
-        #  а мы передаем ему строку. В итоге все что нужно сделать это удалить ['cart''] 
-        #  и строка 28 примет вид if(isset($_SESSION['cart']) && array_search($itemId, $_SESSION) === false)
-            
+   
+    if (isset($_SESSION['cart']) && array_search($itemId, $_SESSION) === FALSE){ //['cart']
+        
         $_SESSION['cart'][] = $itemId;//добавляем данный элемент в массив корзины
-        $resData['cntItems'] = count($_SESSION['cart']);#в переменную $resData инициализирум
+        $resData['cntItems'] = count($_SESSION);#в переменную $resData инициализирум
         #ключ cntItems количество елементов в нашей корзине из элементов 
         #нашего массива'cart'
                       
@@ -49,7 +42,7 @@ function addtocartAction(){
     } else {
         $resData ['success'] = 0;
     }
-    //d($resData);
+    
     echo json_encode($resData); # преобразуем массив в json данные 
     
 }
@@ -71,13 +64,55 @@ function removefromcartAction(){ // вызов из main.js
     $key = array_search($itemId, $_SESSION['cart']);// в массиве Сесии 'cart' находим $itemId - id продукта
     if ($key !== false){
         unset($_SESSION['cart'][$key]);// удаление продукта, который получен в $key
-        $resData['success'] = 1;  // удалилось
-        $resData['cntItems'] = count($_SESSION['cart']); // счетчик
         
+        $resData['cntItems'] = count($_SESSION['cart']); // счетчик
+        $resData['success'] = 1;  // удалилось
     } else {
         $resData['success'] = 0; // не удалилось
     }
-    //d($resData);
-    echo json_encode($resData); # преобразуем массив в json данные 
+     echo json_encode($resData); # преобразуем массив в json данные 
     }
             
+function indexAction($smarty){ // формирование стараницы корзины #3.7 4 min
+   
+    $itemsIds = isset($_SESSION['cart']) ? $_SESSION['cart'] : array(); // была опечатка $item!Ids и $_GET['id'] вместо $_SESSION['cart'] 
+     /*d($itemsIds); 
+      * Debug:
+Array
+(
+    [1] => 7
+    [2] => 2
+    [12] => 6
+    [13] => 6
+    [14] => 6
+    [16] => 9
+    [19] => 10
+    [20] => 10
+    [21] => 10
+    [22] => 10
+    [23] => 13
+    [24] => 13
+    [25] => 3
+    [26] => 8
+    [27] => 1
+)
+      */
+   
+    $rsCategories = getAllMainCatsWithChildren();  //получить все категории
+     // инициализация переменных smarty 
+    $rsProducts = getProductsFromArray($itemsIds); // получить продукты из масива по id
+ 
+     
+    $smarty->assign('pageTitle', 'Корзина'); // заголовок страниц передаем пустую строку
+    
+    $smarty->assign('rsCategories', $rsCategories);//формирование левого меню
+    $smarty->assign('rsProducts', $rsProducts);//передать шаблон данного продукта 
+  
+    // d($rsProducts);
+    
+    //#3.3.1 6 min 19 sec
+    loadTemplate($smarty, 'header'); // шаблон заголовка
+    loadTemplate($smarty, 'cart'); //шаблон  страницы корзины
+    loadTemplate($smarty, 'footer'); // 'шаблоны страниц'
+     
+}
