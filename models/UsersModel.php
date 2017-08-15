@@ -5,7 +5,8 @@
  Модель для таблицы пользователей (users)
  */
 /**
- * 
+ * registerNewUser() проверяет входящие данные и добавляет запись
+ * если данные добавленн, то она возращает ввиде значения
  * @global type $db
  * @param type $email
  * @param type $pwdMD5
@@ -14,6 +15,7 @@
  * @param type $adress
  */
 function registerNewUser($email, $pwdMD5, $name, $phone, $adress){
+    // проверяет
     $email  = htmlspecialchars(mysqli_real_escape_string($email));
     //$pwdMD5 = htmlspecialchars(mysqli_real_escape_string($pwdMD5));
     $name   = htmlspecialchars(mysqli_real_escape_string($name));
@@ -21,9 +23,9 @@ function registerNewUser($email, $pwdMD5, $name, $phone, $adress){
     $adress = htmlspecialchars(mysqli_real_escape_string($adress));
     
     
-     $query = "INSERT INTO
+     $query = "INSERT INTO 
          users(`email`, `pwd`, `name`, `phone`, `adress`)
-              VALUE('{$email}', '{$pwdMD5}', '{$name}', '{$phone}', '{$adress}')"; 
+              VALUE('{$email}', '{$pwdMD5}', '{$name}', '{$phone}', '{$adress}')"; // создает
                
          
          //d($query);
@@ -31,13 +33,13 @@ function registerNewUser($email, $pwdMD5, $name, $phone, $adress){
           $result = $db->query($query);
           
           // #4.2  11 min sec 36
-          if ($result){ //проверка добавления
+          if ($result){ //проверка добавления и выбирает
               $query= "SELECT * FROM users 
                        WHERE(`email = '{$email}'` and `pwd` = '{$pwdMD5}')
                        LIMIT 1";
           global $db;
           $result = $db->query($query);
-          $result = createSmartyRsArray($result);     
+          $result = createSmartyRsArray($result);    
           
           if(isset($query[0])){
               $result['success'] = 1;
@@ -47,7 +49,7 @@ function registerNewUser($email, $pwdMD5, $name, $phone, $adress){
     } else {
         $result['success'] = 0;
     }
-    return $result;      
+    return $result;      // возвращает 
 }
 
 /**
@@ -81,4 +83,20 @@ function checkRegisterParams($email, $pwd1, $pwd2) {
                 
     }
     return $res;
+}
+
+
+/**
+ * Проверка почты
+ */
+
+function checkUserEmail($email){
+    
+    $email  = mysqli_real_escape_string($email); // проверка
+    $query= "SELECT id FROM users 
+                       WHERE email = '{$email}'";//id = email достаем из таблицы
+          global $db;
+          $result = $db->query($query);
+          $result = createSmartyRsArray($result); // преобразовываем в массив и возращаем в контроллер
+          return $result;
 }

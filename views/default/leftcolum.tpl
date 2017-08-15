@@ -29,7 +29,7 @@
                 <input type="password" id="pwd1" name="pwd1" value=""/><br/>
                 повторить пароль:<br/>
                 <input type="password" id="pwd2" name="pwd2" value=""/><br/>
-                <input type="button" onclick="registerNewUser();" value="Зарегистрироваться"/><br/>
+                <input type="button" onClick="registerNewUser();" value="Зарегистрироваться"/><br/>
             </div>
          
         </div>

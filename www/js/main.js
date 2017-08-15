@@ -83,3 +83,58 @@ function removeFromCart(itemId){
      
      $('#itemRealPrice_' + itemId).html(itemRealPrice); 
  }
+ 
+ /** #4.3     14 min 03 sec 
+  * Получение данных с формы
+  * @param {type} obj_form
+  * @returns {unresolved}
+  * из библиотеки jquery each
+  */
+ function getData(obj_form){
+     var hData = {}; // присваиваем переменной пустой массив
+     $('input, textarea, select', obj_form).each(function (){// просматреваем все input, textarea, select объекта
+        
+         if(this.name && this.name !== ''){ // берем значения input, textarea, select
+             hData[this.name] = this.value;
+             console.log('hData[' + this.name + '] = ' + hData[this.name]);// выводим в консоль
+         }
+     });
+     return hData; // возвращаем массив
+     
+ }
+ /** #4.3     13 min 03 sec 
+  * Регистрация нового пользователя
+  * @returns {undefined}
+  */
+ function registerNewUser(){
+     var postData = getData('#registerBox'); // помещаются значения из массива , который получили в getData
+     
+     $.ajax({ //#4.3    17 min 13 sec
+         type: 'Post',
+         //async: false,
+         url: "/?controller=user&action=register&id=" + postData + "/", //#4.3    17 min 25 sec
+         data: postData,
+         dataType: 'json',
+         success: function (data) { // в data попадает echo json_encode($resData) из контроллера
+            if (data['success']){
+                alert('Регистарция прошла успешно'); // $resData['message'] = alert(data['message']);
+                //> блок в левом столбце
+                $('#registerBox').hide();
+                
+//                $('#userLink').attr('href','/user/');
+//                $('#userLink').html(data['userName']);
+//                $('#userBox').show();
+                //<
+                
+                //> Страница заказов
+//                $('#loginBox').hide();
+//                $('#btnSaveOrder').show();
+                //<
+            } else {
+                alert(data['message']);
+            }
+        }
+         
+     })
+     
+ }
