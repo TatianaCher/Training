@@ -67,11 +67,11 @@ function  registerAction(){ // ajax метод вызывается из js
             // добавляя 'displayName'
         } else {// в противном случае при ощибке 'success'  = 0
             $resData['success'] = 0;
-            $resData['message'] = 'Ошибка регистарции';
+            $resData['message'] = 'Ошибка регистрации';
         }
     }
     
     echo json_encode($resData); // подведение итогов покоду !!! 4.3 10 min 43 sec
-     
+    
 }
 

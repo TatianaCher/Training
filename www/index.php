@@ -1,5 +1,5 @@
 <?php session_start();
-
+$_SESSION['cart'];
 // если в сессии нет массива корзины, то создаем его
 if (!isset($_SESSION['cart'])){
     $_SESSION['cart'] = array(); //инициализация переменной и присваение массива

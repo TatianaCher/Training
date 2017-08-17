@@ -18,7 +18,7 @@ function indexAction($smarty){
     
     if($catId == null) exit(); // if( !$catID) exit();
     
-    echo "Тест - {$catId}";
+    echo "Тест - {$catId}. Категории";
     $rsProducts = null; //странно, но ошибки нет
     $rsChildCats = null;
     

@@ -58,6 +58,7 @@ function d($value = null, $die = 1) {
 function createSmartyRsArray($result){
  
 $smartyRs = array ();
+
          while ($row = $result->fetch_assoc()){
          $smartyRs[]=$row;
 }

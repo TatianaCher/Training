@@ -107,17 +107,17 @@ function removeFromCart(itemId){
   * @returns {undefined}
   */
  function registerNewUser(){
-     var postData = getData('#registerBox'); // помещаются значения из массива , который получили в getData
-     
+     var postData = getData('#registerBoxHidden'); // помещаются значения из массива , который получили в getData
+     console.log("Js - registerNewUser("+ postData +")");
      $.ajax({ //#4.3    17 min 13 sec
-         type: 'Post',
+         type: 'POST',
          //async: false,
          url: "/?controller=user&action=register&id=" + postData + "/", //#4.3    17 min 25 sec
          data: postData,
          dataType: 'json',
          success: function (data) { // в data попадает echo json_encode($resData) из контроллера
             if (data['success']){
-                alert('Регистарция прошла успешно'); // $resData['message'] = alert(data['message']);
+                alert('Регистрация прошла успешно'); // $resData['message'] = alert(data['message']);
                 //> блок в левом столбце
                 $('#registerBox').hide();
                 

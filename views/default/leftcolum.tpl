@@ -22,7 +22,7 @@
         
         <div id="registerBox">
             <div class="menuCaption showHidden" onclick="showregisterBox();">Регистрация</div>
-            <div id="registrBoxHidden">
+            <div id="registerBoxHidden">
                 email:<br />
                 <input type="text" id="email" name="email" value=""/><br/>
                 пароль <br />
@@ -40,7 +40,7 @@
         
         
         <div class="menuCaption">Корзина</div> 
-        <a href="/?controller=cart&action=index&id={$cartCntItems}" title="Перейти в корзину">В корзине</a>
+        <a href="/?controller=cart&id={$cartCntItems}" title="Перейти в корзину">В корзине</a>
         <span id="cartCntItems"> {*#3.5.2 3 min 35, количество элементов в корзине*}
             {if $cartCntItems > 0} {$cartCntItems} {else} пусто {/if}
         </span>

@@ -30,10 +30,10 @@ function indexAction($smarty){ // формирование старанички 
      // инициализация переменных smarty 
    
     
-    #  #3.6 min 13 sec 27
-    $smarty->assign('itemsInCart', 0); // есть ли в корзине itemsIn, его нет = 0
-    if(in_array($itemId, $_SESSION['cart'])) { # если есть в массиве 'cart'  в $_SESSION этот фрагмент ['cart'],  то удаляю, то не удаляю
-        $smarty->assign('itemsInCart', 1); //  то itemsInCart = 1: переменная "флаг"
+    #  #3.6       min 13 sec 27
+    $smarty->assign('itemInCart', 0); // есть ли в корзине itemIn, его нет = 0
+    if(in_array($itemId, $_SESSION['cart'])) { 
+    $smarty->assign('itemInCart', 1); //  то itemsInCart = 1: переменная "флаг"
     }
     
     $smarty->assign('pageTitle', ''); // заголовок страниц передаем пустую строку

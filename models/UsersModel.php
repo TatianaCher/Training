@@ -6,7 +6,7 @@
  */
 /**
  * registerNewUser() проверяет входящие данные и добавляет запись
- * если данные добавленн, то она возращает ввиде значения
+ * если данные добавлены, то она возращает ввиде значения
  * @global type $db
  * @param type $email
  * @param type $pwdMD5
@@ -35,13 +35,13 @@ function registerNewUser($email, $pwdMD5, $name, $phone, $adress){
           // #4.2  11 min sec 36
           if ($result){ //проверка добавления и выбирает
               $query= "SELECT * FROM users 
-                       WHERE(`email = '{$email}'` and `pwd` = '{$pwdMD5}')
+                       WHERE(`email` = '{$email}' and `pwd` = '{$pwdMD5}')
                        LIMIT 1";
           global $db;
           $result = $db->query($query);
           $result = createSmartyRsArray($result);    
           
-          if(isset($query[0])){
+          if(isset($result[0])){
               $result['success'] = 1;
           } else {
               $result['success'] = 0;#4.2  13 min sec 14

@@ -28,7 +28,9 @@ function getLastProducts($limits = NULL) {
     
 }
 
-
+/**
+ * 
+ */
 function  getProductsByCat($itemId){
     
     $itemId = intval($itemId);// образование в число
@@ -58,37 +60,39 @@ function getProductById($itemId) {
     
 }
 /**
- * 3.6 - 6 min 24 sec 
+ * #3.6     6 min 37 sec 
  * @global type $db
  * @param array $itemsIds массив индификаторов продуктов
  * @return array массив данных продуктов
  */ 
 function getProductsFromArray($itemsIds){
-     
+    if ($itemsIds) {
+        
+    
     /*  d($itemsIds); 
      *  Debug: Array
     (
-    [1] => 7
-    [2] => 2
-    [12] => 6
-    
+    [0] => 5
+    [1] => 3
     )*/
-    $strIds = implode(',  ', $itemsIds);// создает строку id,id,id,id итд
-   /*d($strIds);
+    $strIds = implode($itemsIds,',  ' );// создает строку id,id,id,id итд
+   
+    /*d($strIds);
     * Debug:
-    7,  2,  6 
+    5,  3
     */
     $query = "SELECT * FROM my_shop.products 
-              where id in ({$strIds})";
-    global $db;
+              WHERE id in ({$strIds})";
     
+              global $db;
+  
    /* d($query); 
     * SELECT * FROM my_shop.products 
-              where id in (7,  2,  6)
+              WHERE id in (5,  3)
     */
     
     $result = $db->query($query);
-        
+    
     /*  d($result); 
      *  Debug:
     mysqli_result Object
@@ -96,9 +100,11 @@ function getProductsFromArray($itemsIds){
     [current_field] => 0
     [field_count] => 7
     [lengths] => 
-    [num_rows] => 6
+    [num_rows] => 2
     [type] => 0
     )*/
    return createSmartyRsArray($result); //  помещается в котроллер
-    
+     } else {
+       return false; //
+     }
 }
