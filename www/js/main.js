@@ -29,6 +29,9 @@ function addToCart(itemId){
                 $('#removeCart_' + itemId).show();
             }
           
+        },
+        error: function (request, status, error) {
+            console.log (request.responseText);
         }
       
     });
@@ -60,6 +63,9 @@ function removeFromCart(itemId){
                 $('#removeCart_' + itemId).hide();
             }
           
+        },
+        error: function (request, status, error) {
+            console.log (request.responseText);
         }
     });
        

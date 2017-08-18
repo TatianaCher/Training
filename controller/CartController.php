@@ -42,7 +42,7 @@ function addtocartAction(){
         $resData ['success'] = 0; //пусто!!!  -> в js
     }
      
-    echo json_encode($resData); # преобразуем массив в json данные 
+    echo " Data json " .json_encode($resData); # преобразуем массив в json данные 
     
 }
 
@@ -73,7 +73,7 @@ function removefromcartAction(){ // вызов из main.js
         } else {
             $resData['success'] = 0; // не удалилось
         }
-         echo " Cтраница корзины " . json_encode($resData);  # преобразуем массив в json данные 
+         echo " Data json " . json_encode($resData);  # преобразуем массив в json данные 
 }
 
 /**
