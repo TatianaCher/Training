@@ -55,6 +55,9 @@ function addtocartAction(){
  * ключ 'cntItems' количество елементов в корзине 
  */
 function removefromcartAction(){ // вызов из main.js
+  
+     
+    
     $itemId = isset($_GET['id']) ? intval($_GET['id']) : NULL;
        
     if (! $itemId) {exit();}
@@ -70,7 +73,7 @@ function removefromcartAction(){ // вызов из main.js
         } else {
             $resData['success'] = 0; // не удалилось
         }
-         echo json_encode($resData); # преобразуем массив в json данные 
+         echo " Cтраница корзины " . json_encode($resData);  # преобразуем массив в json данные 
 }
 
 /**

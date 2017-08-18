@@ -6,8 +6,6 @@ if (!isset($_SESSION['cart'])){
 }
 
 
-
-
 include_once '../config/config.php';// Инициализация настроек
 
 include_once '../config/db.php';// Инициализация бд

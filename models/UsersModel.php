@@ -46,8 +46,8 @@ function registerNewUser($email, $pwdMD5, $name, $phone, $adress){
           } else {
               $result['success'] = 0;#4.2  13 min sec 14
           }
-    } else {
-        $result['success'] = 0;
+    }  else {
+        $result['success'] = 0;// #4.2  14 min 39 sec
     }
     return $result;      // возвращает 
 }
@@ -60,7 +60,8 @@ function registerNewUser($email, $pwdMD5, $name, $phone, $adress){
  * @return string
  */
 function checkRegisterParams($email, $pwd1, $pwd2) {
-    $res = null;
+    
+    $res = null;  // или  array()
     
     if(! $email) {
         $res['success'] = false;
@@ -91,7 +92,7 @@ function checkRegisterParams($email, $pwd1, $pwd2) {
  */
 
 function checkUserEmail($email){
-    
+ 
     $email  = mysqli_real_escape_string($email); // проверка
     $query= "SELECT id FROM users 
                        WHERE email = '{$email}'";//id = email достаем из таблицы

@@ -11,15 +11,18 @@
 
 
 /**  # 4.2   15 min 58 sec
+ * Инициализация сессионной пременной  $_SESSION['user']
  * 
+ * return json массив данных нового пользователя
  */
  
-function  registerAction(){ // ajax метод вызывается из js 
+
+function  registerAction(){ // ajax метод вызывается из main js передает данные пользователя
     
     $email = isset($_REQUEST['email']) ? $_REQUEST['email'] : null;
     $email = trim($email);
     
-    
+   
     $pwd1  = isset($_REQUEST['pwd1'])  ? $_REQUEST['pwd1'] : null;
     $pwd2  = isset($_REQUEST['pwd2'])  ? $_REQUEST['pwd2'] : null;
     
@@ -28,12 +31,13 @@ function  registerAction(){ // ajax метод вызывается из js
     $name  = isset($_REQUEST['name'])  ? $_REQUEST['name'] : null;
     $name  = trim($name);
 
-    $resData = null;
+    $resData = null;// промежуточне данные об  успехах или ошибках      18 33
     $resData = checkRegisterParams($email, $pwd1, $pwd2); // проверка входных параметров
     
     
     // проверка почты, если ошибки нет!!! , то дальше по блоку
-    if ( ! $resData && checkUserEmail($email)) {
+    $chEmail = checkUserEmail($email);
+    if ( ! $resData && $chEmail ) {
         $resData['success'] = false;
         $resData['message'] = "Пользователь с таким email ('{$email}') уже зарегистрирован";
         
