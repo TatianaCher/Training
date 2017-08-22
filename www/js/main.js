@@ -29,6 +29,9 @@ function addToCart(itemId){
                 $('#removeCart_' + itemId).show();
             }
           
+        },
+        error: function (request, status, error) {
+            console.log (request.responseText);
         }
       
     });
@@ -60,6 +63,9 @@ function removeFromCart(itemId){
                 $('#removeCart_' + itemId).hide();
             }
           
+        },
+        error: function (request, status, error) {
+            console.log (request.responseText);
         }
     });
        
@@ -107,7 +113,7 @@ function removeFromCart(itemId){
   * @returns {undefined}
   */
  function registerNewUser(){
-     var postData = getData('#registerBoxHidden'); // помещаются значения из массива , который получили в getData
+     var postData = getData('#registerBox'); // помещаются значения из массива , который получили в getData
      console.log("Js - registerNewUser("+ postData +")");
      $.ajax({ //#4.3    17 min 13 sec
          type: 'POST',
@@ -133,8 +139,10 @@ function removeFromCart(itemId){
             } else {
                 alert(data['message']);
             }
-        }
+        },
+        error: function (request, status, error) {
+            console.log(request.responseText);}
          
-     })
+     });
      
  }

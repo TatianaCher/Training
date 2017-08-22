@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-11, created on 2017-08-15 20:27:18
-  from "C:\OpenServer\domains\MyShop02\views\default\product.tpl" */
+/* Smarty version 3.1.32-dev-11, created on 2017-08-22 17:22:02
+  from "C:\OpenServer\domains\Training\views\default\product.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-11',
-  'unifunc' => 'content_59932ef62f5980_76504063',
+  'unifunc' => 'content_599c3e0af020f5_62091509',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'f2d6cf97c68e4487b435ba017f686341a215eb40' => 
+    'a32a3d2ab63e2a399398ebb7eb0c725d3a3d9ba3' => 
     array (
-      0 => 'C:\\OpenServer\\domains\\MyShop02\\views\\default\\product.tpl',
-      1 => 1502799102,
+      0 => 'C:\\OpenServer\\domains\\Training\\views\\default\\product.tpl',
+      1 => 1503058686,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_59932ef62f5980_76504063 (Smarty_Internal_Template $_smarty_tpl) {
+function content_599c3e0af020f5_62091509 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
      
 <h3>  <?php echo $_smarty_tpl->tpl_vars['rsProduct']->value['name'];?>

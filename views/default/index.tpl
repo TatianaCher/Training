@@ -6,7 +6,7 @@
         <a href="/?controller=category&id={$item['category_id']}" >
             <img src="/images/products/{$item['image']}" width="100">
         </a> <br />
-        <a href="/?controller=category&id={$item['category_id']}" >{$item['name']}</a>
+        <a href="/?controller=product&id={$item['category_id']}" >{$item['name']}</a>
     </div>
     
     {if $smarty.foreach.products.iteration mod 3 == 0}

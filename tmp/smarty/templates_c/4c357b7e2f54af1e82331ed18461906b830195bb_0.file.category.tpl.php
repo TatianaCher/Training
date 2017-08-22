@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-11, created on 2017-08-13 00:27:59
-  from "C:\OpenServer\domains\MyShop02\views\default\category.tpl" */
+/* Smarty version 3.1.32-dev-11, created on 2017-08-22 18:32:03
+  from "C:\OpenServer\domains\Training\views\default\category.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-11',
-  'unifunc' => 'content_598f72df87ace2_78173746',
+  'unifunc' => 'content_599c4e73e46d00_32096100',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'a683e531ad815798e86d61921bac4dc087ccb24c' => 
+    '4c357b7e2f54af1e82331ed18461906b830195bb' => 
     array (
-      0 => 'C:\\OpenServer\\domains\\MyShop02\\views\\default\\category.tpl',
-      1 => 1502573185,
+      0 => 'C:\\OpenServer\\domains\\Training\\views\\default\\category.tpl',
+      1 => 1503058687,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_598f72df87ace2_78173746 (Smarty_Internal_Template $_smarty_tpl) {
+function content_599c4e73e46d00_32096100 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
  
 <h2>Товары категории <?php echo $_smarty_tpl->tpl_vars['rsCategory']->value['name'];?>

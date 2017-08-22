@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-11, created on 2017-08-17 14:46:17
-  from "C:\OpenServer\domains\MyShop02\views\default\cart.tpl" */
+/* Smarty version 3.1.32-dev-11, created on 2017-08-22 17:22:10
+  from "C:\OpenServer\domains\Training\views\default\cart.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-11',
-  'unifunc' => 'content_5995820958ec60_36830336',
+  'unifunc' => 'content_599c3e1263af24_06815226',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'a7a0b67ff07b79b5ce98fbc7b0c05a9bd161dd37' => 
+    'fbfe20006ff91d2445a7fdc10f483a94d62031b2' => 
     array (
-      0 => 'C:\\OpenServer\\domains\\MyShop02\\views\\default\\cart.tpl',
-      1 => 1502970370,
+      0 => 'C:\\OpenServer\\domains\\Training\\views\\default\\cart.tpl',
+      1 => 1503058686,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5995820958ec60_36830336 (Smarty_Internal_Template $_smarty_tpl) {
+function content_599c3e1263af24_06815226 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
 <h1> Корзина </h1>

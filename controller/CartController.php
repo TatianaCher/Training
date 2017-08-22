@@ -19,10 +19,6 @@
 function addtocartAction(){
     $itemId = isset($_GET['id']) ? intval($_GET['id']) : NULL;
     
-    echo "Тест - {$itemId} . Cтраница корзины "; # пришло на страницу 
-    # (не в консоль) из шаблона занчение $cartCntItems , а в адресной строке
-    #  http://myshop02/?controller=cart&action=addtocart&id=27, не хватало "&id"
-    
    if (! $itemId) {exit();}
     $resData = array(); #3.5 min 4. 00; пустой массив; результирующие данные для js скрипта
     //если значение не найденно, то добавляем 
@@ -82,7 +78,10 @@ function removefromcartAction(){ // вызов из main.js
 
     
 function indexAction($smarty){ // формирование стараницы корзины #3.7 4 min
-   
+       echo "Тест - {$itemsIds} . Cтраница корзины "; # пришло на страницу 
+    # (не в консоль) из шаблона занчение $cartCntItems , а в адресной строке
+    #  http://myshop02/?controller=cart&action=addtocart&id=27, не хватало "&id"
+    
     $itemsIds = isset($_SESSION['cart']) ? $_SESSION['cart'] : array(); 
     //$itemsIds[] = 0; //без этой строчки была ошибка Uncaught Error: 
     //Call to a member function fetch_assoc() on boolean in 

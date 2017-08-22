@@ -27,7 +27,7 @@ function  registerAction(){ // ajax метод вызывается из js
     
     $name  = isset($_REQUEST['name'])  ? $_REQUEST['name'] : null;
     $name  = trim($name);
-
+    $adress  = isset($_REQUEST['adress'])  ? $_REQUEST['adress'] : null;
     $resData = null;
     $resData = checkRegisterParams($email, $pwd1, $pwd2); // проверка входных параметров
     
@@ -71,7 +71,7 @@ function  registerAction(){ // ajax метод вызывается из js
         }
     }
     
-    echo json_encode($resData); // подведение итогов покоду !!! 4.3 10 min 43 sec
-    
+    echo json_encode($resData); // подведение итогов по коду !!! 4.3 10 min 43 sec
+     
 }
 
