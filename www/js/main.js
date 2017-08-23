@@ -113,7 +113,7 @@ function removeFromCart(itemId){
   * @returns {undefined}
   */
  function registerNewUser(){
-     var postData = getData('#registerBox'); // помещаются значения из массива , который получили в getData
+     var postData = getData('#registerBox'); // помещаются значения из массива , который получили в getData из registerBox 
      console.log("Js - registerNewUser("+ postData +")");
      $.ajax({ //#4.3    17 min 13 sec
          type: 'POST',
@@ -127,9 +127,9 @@ function removeFromCart(itemId){
                 //> блок в левом столбце
                 $('#registerBox').hide();
                 
-//                $('#userLink').attr('href','/user/');
-//                $('#userLink').html(data['userName']);
-//                $('#userBox').show();
+                $('#userLink').attr('href','/user/'); //#4.4     4 min 49 sec
+                $('#userLink').html(data['userName']);
+                $('#userBox').show();
                 //<
                 
                 //> Страница заказов
@@ -146,3 +146,60 @@ function removeFromCart(itemId){
      });
      
  }
+  /**
+   * выход из кабинета 
+   * */
+ function logout() {
+     
+       console.log("Js - logout()");//отладка
+    $.ajax({
+        type: 'POST', // задаем метод
+        url: "/user/logout/", // Точно Фиксики дерзают!!! и так работает  "/?controller=user&action=logout&id="
+        success: function() {
+            console.log('user logged out');
+            $('#registerBox').show();
+            $('#userBox').hide();
+        }
+    });
+}
+
+
+/**
+ * авторизация пользователя
+ * **/
+
+function login(){
+    console.log("Js - login()");//отладка
+    
+    
+    var email =  $('#loginEmail').val();
+    var pwd = $('#loginPwd').val();
+    
+    var postData = "email=" + email + "&pwd" +pwd; /** аналогичный результат 
+    * формируется   в getData (см выше), другая форма запроса
+    * 
+    * #4.6     10 min 13 sec
+    * 
+    * */
+    
+    $.ajax({
+        type: 'POST',
+        //async : false,
+        url: "/?controller=user&action=login&id=",
+        data: postData,
+        dataType: 'json',
+        success: function (data) {
+            console.log(data);
+            if(data['success']){
+                $('#registerBox').hide();
+                $('#loginBox').hide();
+                $('#userLink').attr('href','/user/');
+                $('#userLink').html(data('displayName'));
+                $('#userBox').show();
+                
+            } else{
+                alert(data['message']);
+            }
+        }
+    });
+}

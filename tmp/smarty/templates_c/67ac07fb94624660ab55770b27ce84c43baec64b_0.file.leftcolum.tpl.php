@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-11, created on 2017-08-22 17:22:00
+/* Smarty version 3.1.32-dev-11, created on 2017-08-24 00:32:56
   from "C:\OpenServer\domains\Training\views\default\leftcolum.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-11',
-  'unifunc' => 'content_599c3e08d2b1e1_42049546',
+  'unifunc' => 'content_599df488b257d6_54455205',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '67ac07fb94624660ab55770b27ce84c43baec64b' => 
     array (
       0 => 'C:\\OpenServer\\domains\\Training\\views\\default\\leftcolum.tpl',
-      1 => 1503058686,
+      1 => 1503520595,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_599c3e08d2b1e1_42049546 (Smarty_Internal_Template $_smarty_tpl) {
+function content_599df488b257d6_54455205 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
   
    
@@ -66,6 +66,23 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);
 
         </div>
         
+        
+        
+        <div id="userBox" class="hideme">   
+            <a href="#" id="userLink"></a><br />
+            <a href="#" onclick="logout();return false;">Выход</a>
+            
+        </div>      
+        
+          
+        
+          <div id="loginBox">
+            <div class="menuCaption">Авторизация</div>   
+            <input type="text" id="loginEmail" name="loginEmail" value=""/><br/>
+            <input type="password" id="loginPwd" name="loginPwd" value=""/><br/>
+            <input type="button" onClick="login();"  value="Войти"/><br/>
+        </div> 
+        
         <div id="registerBox">
             <div class="menuCaption showHidden" onclick="showregisterBox();">Регистрация</div>
             <div id="registerBoxHidden">
@@ -79,10 +96,6 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);
             </div>
          
         </div>
-        
-        
-        
-        
         
         
         <div class="menuCaption">Корзина</div> 

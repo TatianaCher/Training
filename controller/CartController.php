@@ -78,7 +78,7 @@ function removefromcartAction(){ // вызов из main.js
 
     
 function indexAction($smarty){ // формирование стараницы корзины #3.7 4 min
-       echo "Тест - {$itemsIds} . Cтраница корзины "; # пришло на страницу 
+       echo "Тест - {$itemId} . Cтраница корзины "; # пришло на страницу 
     # (не в консоль) из шаблона занчение $cartCntItems , а в адресной строке
     #  http://myshop02/?controller=cart&action=addtocart&id=27, не хватало "&id"
     

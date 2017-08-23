@@ -20,6 +20,27 @@
             {/foreach}
         </div>
         
+        
+        
+        <div id="userBox" class="hideme"> {*  Делаем через js*}  
+            <a href="#" id="userLink"></a><br />
+            <a href="#" onclick="logout();return false;">Выход</a>
+            
+        </div>      
+        
+        {*<div id="userBox" class="hideme">   Делаем через контроллер
+            <a href="#" id="userLink"></a><br />
+            <a href="/?controller=user&action=logout&id=" onclick="logout();">Выход</a>
+            
+        </div> *}  
+        
+          <div id="loginBox">
+            <div class="menuCaption">Авторизация</div>   
+            <input type="text" id="loginEmail" name="loginEmail" value=""/><br/>
+            <input type="password" id="loginPwd" name="loginPwd" value=""/><br/>
+            <input type="button" onClick="login();"  value="Войти"/><br/>
+        </div> 
+        
         <div id="registerBox">
             <div class="menuCaption showHidden" onclick="showregisterBox();">Регистрация</div>
             <div id="registerBoxHidden">
@@ -33,10 +54,6 @@
             </div>
          
         </div>
-        
-        
-        
-        
         
         
         <div class="menuCaption">Корзина</div> 

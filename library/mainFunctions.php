@@ -65,3 +65,9 @@ $smartyRs = array ();
 
 return $smartyRs;
 }
+
+function redirect($url){
+    if( ! $url) {$url = '/';}
+    header("Location: {$url}");
+    exit;
+}

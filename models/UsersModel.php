@@ -123,3 +123,33 @@ function checkUserEmail($email){
           $result = createSmartyRsArray($result); // преобразовываем в массив и возращаем в контроллер
           return $result;
 }
+/**
+ * Авторизация пользователя
+ * @global type $db
+ * @param string $email  почта (логин)
+ * @param string $pwd пароль
+ * @return array  массив данных пользователя
+ */
+
+function loginUser ($email, $pwd) {
+    // разобраться с sql иньекциями
+    // $email = htmlspecialchars(mysqli_real_escape_string($email));
+    //  #4.6     10 min 13 sec
+    
+    $pwd = md5(trim($pwd));  // рекомендуется более сложный способ шифровки, этот вариант базовый
+    
+    $query= "SELECT * FROM users 
+            WHERE(`email` = '{$email}' and `pwd` = '{$pwd}')
+            LIMIT 1";
+          //d($query);
+          global $db;
+          $result = $db->query($query);
+          $result = createSmartyRsArray($result);
+          
+          if(isset($result[0])){
+              $result['success'] = 1;
+          } else {
+              $result['success'] = 0; 
+          }
+          return $result;    
+}

@@ -41,7 +41,7 @@ function  registerAction(){ // ajax метод вызывается из js
     
     # 4.3 3 min 45 sec
     
-    if ( ! $resData ){ // вносим пороль в db
+    if ( ! $resData ){ // вносим пороль  в db
         $pwdMD5 = md5($pwd1); // создаем пременную и кодируем без обратного шифрования, 
         //получаем хеш пароля в строке
         
@@ -75,3 +75,51 @@ function  registerAction(){ // ajax метод вызывается из js
      
 }
 
+/**
+ * разлогинивание пользователя
+ * 
+ */
+
+function logoutAction(){
+    if(isset($_SESSION['user'])){
+       unset($_SESSION['user']);
+       unset($_SESSION['cart']);
+    }
+    redirect('/');
+}
+
+/*
+ * AJAX  авторизация пользователя
+ * @return json массив данных пользователя # 4.5 4 min
+ */
+
+function loginAction (){
+    $email = isset($_REQUEST['email']) ? $_REQUEST['email'] : null;
+    $email = trim($email);
+     
+    $pwd  = isset($_REQUEST['pwd']) ? $_REQUEST['pwd'] : null;
+    $pwd  = trim($pwd);
+    
+    $userData = loginUser($email, $pwd);
+    //d($email);
+    if($userData['success']){ // если есть 'success', то выполняем дальше
+        $userData = $userData[0];
+        
+        //#4.6     10 min 13 sec
+        $_SESSION['user'] = $userData; //инициализируем сессионую переменную user  и присваем  $userData
+        // которые пришли из userModel
+        $_SESSION['user']['displayName'] = $userData['name'] ? $userData['name'] : $userData['email'];
+        // к сессионой переменной user добавляем ключ displayName
+        $resData = $_SESSION['user']; // массив  $resData и  записываем  в него $_SESSION['user']
+        $resData['success'] = 1;
+        
+        //$resData['userName'] = $userData['name'] ? $userData['name'] : $userData['email'] ;
+        //$resData['userEmail'] = $email;
+         //# 4. 5      13 min 45 sec 
+    } else {
+        $resData['success'] = 0;
+        $resData['message'] = 'Неверный логин или пароль';
+    }
+     
+    echo json_encode($resData);
+}
