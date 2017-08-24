@@ -20,7 +20,14 @@
             {/foreach}
         </div>
         
-        
+    {if isset($arUser)}  {* # 4.7    5 min 06 sec*}
+        <div id="userBox" >  
+            <a href="/?controller=user&id=" id="userLink">{$arUser['displayName']}</a><br />
+            <a href="#" onclick="logout();return false;">Выход</a>
+            
+        </div> 
+    
+    {else}    
         
         <div id="userBox" class="hideme"> {*  Делаем через js*}  
             <a href="#" id="userLink"></a><br />
@@ -34,7 +41,7 @@
             
         </div> *}  
         
-          <div id="loginBox">
+        <div id="loginBox">
             <div class="menuCaption">Авторизация</div>   
             <input type="text" id="loginEmail" name="loginEmail" value=""/><br/>
             <input type="password" id="loginPwd" name="loginPwd" value=""/><br/>
@@ -46,7 +53,7 @@
             <div id="registerBoxHidden">
                 email:<br />
                 <input type="text" id="email" name="email" value=""/><br/>
-                пароль <br />
+                пароль: <br />
                 <input type="password" id="pwd1" name="pwd1" value=""/><br/>
                 повторить пароль:<br/>
                 <input type="password" id="pwd2" name="pwd2" value=""/><br/>
@@ -55,7 +62,7 @@
          
         </div>
         
-        
+    {/if}    
         <div class="menuCaption">Корзина</div> 
         <a href="/?controller=cart&id={$cartCntItems}" title="Перейти в корзину">В корзине</a>
         <span id="cartCntItems"> {*#3.5.2 3 min 35, количество элементов в корзине*}

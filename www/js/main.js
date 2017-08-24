@@ -169,32 +169,32 @@ function removeFromCart(itemId){
  * **/
 
 function login(){
-    console.log("Js - login()");//отладка
     
-    
+     
     var email =  $('#loginEmail').val();
     var pwd = $('#loginPwd').val();
     
-    var postData = "email=" + email + "&pwd" +pwd; /** аналогичный результат 
+    var postData = "email=" + email + "&pwd=" + pwd; 
+    
+    /** аналогичный результат 
     * формируется   в getData (см выше), другая форма запроса
     * 
     * #4.6     10 min 13 sec
     * 
     * */
-    
+     console.log("Js - login(" + postData + ")");//отладка
     $.ajax({
         type: 'POST',
         //async : false,
-        url: "/?controller=user&action=login&id=",
+        url: "/?controller=user&action=login&id=" + postData + "/",
         data: postData,
         dataType: 'json',
         success: function (data) {
-            console.log(data);
-            if(data['success']){
+                if(data['success']){
                 $('#registerBox').hide();
                 $('#loginBox').hide();
                 $('#userLink').attr('href','/user/');
-                $('#userLink').html(data('displayName'));
+                $('#userLink').html(data['displayName']);
                 $('#userBox').show();
                 
             } else{
@@ -202,4 +202,12 @@ function login(){
             }
         }
     });
+}
+
+function showregisterBox (){
+    if($("#registerBoxHidden").css('display')  !==  'block' ) {
+       $("#registerBoxHidden").show(); 
+    } else {
+        $("#registerBoxHidden").hide();
+    }
 }

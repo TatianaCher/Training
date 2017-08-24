@@ -15,7 +15,7 @@
  */
  
 function  registerAction(){ // ajax метод вызывается из js 
-    
+    d($_REQUEST['email']);
     $email = isset($_REQUEST['email']) ? $_REQUEST['email'] : null;
     $email = trim($email);
     
@@ -90,18 +90,19 @@ function logoutAction(){
 
 /*
  * AJAX  авторизация пользователя
- * @return json массив данных пользователя # 4.5 4 min
+ * @return json массив данных пользователя # 4.5 4 min 20 sec
  */
 
 function loginAction (){
+     // передаем из js методом post
     $email = isset($_REQUEST['email']) ? $_REQUEST['email'] : null;
     $email = trim($email);
-     
+      
     $pwd  = isset($_REQUEST['pwd']) ? $_REQUEST['pwd'] : null;
     $pwd  = trim($pwd);
     
     $userData = loginUser($email, $pwd);
-    //d($email);
+   
     if($userData['success']){ // если есть 'success', то выполняем дальше
         $userData = $userData[0];
         
