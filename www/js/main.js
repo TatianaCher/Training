@@ -91,7 +91,7 @@ function removeFromCart(itemId){
  }
  
  /** #4.3     14 min 03 sec 
-  * Получение данных с формы
+  * Получение данных с форм nput, textarea, select и выводим в консоль
   * @param {type} obj_form
   * @returns {unresolved}
   * из библиотеки jquery each
@@ -159,6 +159,8 @@ function removeFromCart(itemId){
             console.log('user logged out');
             $('#registerBox').show();
             $('#userBox').hide();
+            
+            $('#loginBox').show();// добавила
         }
     });
 }
@@ -166,20 +168,21 @@ function removeFromCart(itemId){
 
 /**
  * авторизация пользователя
+ * #4.6  1 мин 24 сек
  * **/
 
 function login(){
     
      
-    var email =  $('#loginEmail').val();
-    var pwd = $('#loginPwd').val();
+    var email =  $('#loginEmail').val(); // берем значение из id="loginEmail"
+    var pwd = $('#loginPwd').val();// берем значение из id="loginPwd"
     
-    var postData = "email=" + email + "&pwd=" + pwd; 
+    var postData = "email=" + email + "&pwd=" + pwd; //строка запроса - get запрос
     
     /** аналогичный результат 
     * формируется   в getData (см выше), другая форма запроса
     * 
-    * #4.6     10 min 13 sec
+    * #4.6     6 min 40 sec
     * 
     * */
      console.log("Js - login(" + postData + ")");//отладка
@@ -210,4 +213,44 @@ function showregisterBox (){
     } else {
         $("#registerBoxHidden").hide();
     }
+}
+
+/** # 4. 10  min 12 sec 37
+ * Обновление данных пользователя
+ * сбор данных с формы , еще один способ
+ * @returns {undefined}
+ */
+function updateUserData() { // инициализируем каждую переменну , см. выше getData работает с объектом 
+    console.log('JS - updateUserData()');
+    // больше кода
+    var phone = $('#newPhone').val();
+    var adress = $('#newAdress').val();
+    var pwd1 = $('#newPwd1').val();
+    var pwd2 = $('#newPwd2').val();
+    var curPwd = $('#curPwd').val();
+    var name = $('#newName').val();
+    
+    var postData = {
+        phone: phone, // присваение ключам значение
+        adress: adress,
+        pwd1: pwd1,
+        pwd2: pwd2,
+        curPwd: curPwd,
+        name: name
+    };
+   $.ajax({
+        type: 'POST',
+        //async : false,
+        url: "/?controller=user&action=update&id=" + postData + "/",
+        data: postData,
+        dataType: 'json',
+        success: function (data) {
+                if(data['success']){
+                    $('#userLink').html(data['userName']);
+                    alert(data['message']);
+                } else{
+                    alert(data['message']);
+                }
+            }
+   });
 }

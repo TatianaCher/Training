@@ -22,7 +22,7 @@
         
     {if isset($arUser)}  {* # 4.7    5 min 06 sec*}
         <div id="userBox" >  
-            <a href="/?controller=user&id=" id="userLink">{$arUser['displayName']}</a><br />
+            <a href="/?controller=user&action=index&id=" id="userLink">{$arUser['displayName']}</a><br />
             <a href="#" onclick="logout();return false;">Выход</a>
             
         </div> 

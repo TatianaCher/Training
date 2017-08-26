@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-11, created on 2017-08-25 00:26:02
+/* Smarty version 3.1.32-dev-11, created on 2017-08-26 22:19:05
   from "C:\OpenServer\domains\Training\views\default\leftcolum.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-11',
-  'unifunc' => 'content_599f446a798517_49518925',
+  'unifunc' => 'content_59a1c9a9bdc1c5_39493076',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '67ac07fb94624660ab55770b27ce84c43baec64b' => 
     array (
       0 => 'C:\\OpenServer\\domains\\Training\\views\\default\\leftcolum.tpl',
-      1 => 1503609944,
+      1 => 1503775141,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_599f446a798517_49518925 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59a1c9a9bdc1c5_39493076 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
   
    
@@ -68,7 +68,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);
         
     <?php if (isset($_smarty_tpl->tpl_vars['arUser']->value)) {?>  
         <div id="userBox" >  
-            <a href="/?controller=user&id=" id="userLink"><?php echo $_smarty_tpl->tpl_vars['arUser']->value['displayName'];?>
+            <a href="/?controller=user&action=index&id=" id="userLink"><?php echo $_smarty_tpl->tpl_vars['arUser']->value['displayName'];?>
 </a><br />
             <a href="#" onclick="logout();return false;">Выход</a>
             

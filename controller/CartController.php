@@ -78,10 +78,7 @@ function removefromcartAction(){ // вызов из main.js
 
     
 function indexAction($smarty){ // формирование стараницы корзины #3.7 4 min
-       echo "Тест - {$itemId} . Cтраница корзины "; # пришло на страницу 
-    # (не в консоль) из шаблона занчение $cartCntItems , а в адресной строке
-    #  http://myshop02/?controller=cart&action=addtocart&id=27, не хватало "&id"
-    
+       
     $itemsIds = isset($_SESSION['cart']) ? $_SESSION['cart'] : array(); 
     //$itemsIds[] = 0; //без этой строчки была ошибка Uncaught Error: 
     //Call to a member function fetch_assoc() on boolean in 
@@ -93,7 +90,10 @@ function indexAction($smarty){ // формирование стараницы к
                     [0] => 5
                     [1] => 3
                    )      */
-   
+   echo "Тест - {$itemsIds } . Cтраница корзины "; # пришло на страницу 
+    # (не в консоль) из шаблона занчение $cartCntItems , а в адресной строке
+    #  http://myshop02/?controller=cart&action=addtocart&id=27, не хватало "&id"
+    
     $rsCategories = getAllMainCatsWithChildren();  //получить все категории
      // инициализация переменных smarty 
     $rsProducts = getProductsFromArray($itemsIds); // получить продукты из масива по id
