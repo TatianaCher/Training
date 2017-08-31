@@ -126,10 +126,10 @@ function loginAction (){
 }
 /**
  * Формирование главной страницы пользователя
- * @param объект $smary шаблонизатор
+ * @param объект $smarty шаблонизатор
  */
 function indexAction ($smarty){
-    echo "Тест - . Cтраница пользователя";
+    //echo "Тест - . Cтраница пользователя";
    
     //если пользователь не залогинен редирект на главную
     if(!isset($_SESSION['user'])){
@@ -150,13 +150,21 @@ function indexAction ($smarty){
  * Обновление данных пользователя
  */
 function updateAction (){
-    // если пользователь не залогинился выходим
-    if( !isset($_SESSION['user'])) {
-        redirect('/');
+    // если пользователь не залогинился, выходим
+//    if( !isset($_SESSION['user'])) {
+//        redirect('/');
+//    }
+//    
+     
+    if(isset($_SESSION['user'])){
+       unset($_SESSION['user']);
+       unset($_SESSION['cart']);
     }
+  
+
     
     // инициализация переменных
-    $resData = null; // массив в формате json
+    $resData = array(); // массив в формате json
     $phone = isset($_REQUEST['phone']) ? $_REQUEST['phone'] : null; 
     // данные которые пришли POST(безопаснее!) или GET
     // $phone = isset($_POST['phone']) ? $_$_POST['phone'] : null; 
@@ -169,7 +177,7 @@ function updateAction (){
     
     //проверка правильности пароля (введеный и тот под которым залогинились)
     # 4.10   min 6 05 sec
-    $curPwd = md5($curPwd);
+    $curPwdMD5 = md5($curPwd);
     if( ! $curPwd || ($_SESSION['user']['pwd'] != $curPwdMD5)){
         $resData['success'] = 0;
         $resData['message'] = 'Текущий пароль не верный';
@@ -181,19 +189,25 @@ function updateAction (){
     // обновление данных пользователя
     $res = updateUserData($name, $phone, $adress, $pwd1, $pwd2, $curPwdMD5);
         if($res){
-            $resData['success']  = 1;
+            $resData['success']  = 1; #4.10  10 min 10 sec оттступление по теме качественный код
             $resData['message']  = 'Данные сохранены';
             $resData['userName'] = $name;
             
             $_SESSION['user']['name'] = $name;
             $_SESSION['user']['phone'] = $phone;
             $_SESSION['user']['adress'] = $adress;
-            $_SESSION['user']['pwd'] = $curPwdMD5;
-            $_SESSION['user']['displayName'] = $name ? $name : $_SESSION['user']['email'];
             
+            #4.11   min 11.35
+            $newPwd = $_SESSION['user']['pwd']; //новый пароль
+            if($pwd1 &&($pwd1 == $pwd2)) {
+            $newPwd = trim($pwd1);
+    }
+    
+            $_SESSION['user']['pwd'] = $newPwd;
+            $_SESSION['user']['displayName'] = $name ? $name : $_SESSION['user']['email'];
         } else {
             $resData['success']  = 0;
-            $resData['message']  = 'Ошибка сохранение данных';
+            $resData['message']  = 'Ошибка сохранения данных';
         }
           
         echo json_encode($resData);

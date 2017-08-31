@@ -156,37 +156,38 @@ function loginUser ($email, $pwd) {
 
 /**
  * Изменение данных пользователя
- * @global type $db
- * @param type $name
- * @param type $phone
- * @param type $adress
- * @param type $pwd1
- * @param type $pwd2
- * @param type $curPwd
- * @return  TRUE в случае успеха
+ * @global type $db база
+ * @param string $name    имя пользователя
+ * @param string $phone   телефон
+ * @param string $adress  адрес
+ * @param string $pwd1    новый пароль
+ * @param string $pwd2    повтор нового пароля
+ * @param string $curPwd  текущий пароль
+ * @return boolean TRUE в случае успеха
  */
-function updateUserData ($name, $phone, $adress,$pwd1,$pwd2,$curPwd ){
-   // $email = htmlspecialchars(mysqli_real_escape_string($_SESSION['user']['$email']);
+    function updateUserData ($name, $phone, $adress,$pwd1,$pwd2,$curPwd ){
+   // $email = htmlspecialchars(mysqli_real_escape_string($_SESSION['user']['$email']));
    $email = $_SESSION['user']['$email'];
    // $name = htmlspecialchars(mysqli_real_escape_string($name));
    // $phone = htmlspecialchars(mysqli_real_escape_string($phone));
-   // $adress = htmlspecialchars(mysqli_real_escape_string($adress));
+    //$adress = htmlspecialchars(mysqli_real_escape_string($adress));
     $pwd1 = trim($pwd1);
     $pwd2  = trim($pwd2);
+    
     $newPwd = null; //новый пароль
     if($pwd1 &&($pwd1 == $pwd2)) {
         $newPwd = md5($pwd1);
-        
     }
+    // #4.9  10 min 36 sec
      $query= "UPDATE users 
             SET";
          
      if($newPwd){
          $query .= "`pwd` = '{$newPwd}', ";
      }
-     $query .= "`name`   = '{$name}'
-                `phone`   = '{$phone}'
-                `adress`  = '{$adress}'
+     $query .= "`name`   = '{$name}',
+                `phone`   = '{$phone}',
+                `adress`  = '{$adress}' 
                  WHERE
                 `email`   = '{$email}' AND `pwd` = '{$curPwd}'
                  LIMIT 1";

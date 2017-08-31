@@ -196,7 +196,7 @@ function login(){
                 if(data['success']){
                 $('#registerBox').hide();
                 $('#loginBox').hide();
-                $('#userLink').attr('href','/user/');
+                $('#userLink').attr('href','/?controller=user&action=update&id=');
                 $('#userLink').html(data['displayName']);
                 $('#userBox').show();
                 
@@ -231,17 +231,18 @@ function updateUserData() { // инициализируем каждую пер�
     var name = $('#newName').val();
     
     var postData = {
-        phone: phone, // присваение ключам значение
+        phone: phone, // присваение ключам значения
+        name: name,
         adress: adress,
         pwd1: pwd1,
         pwd2: pwd2,
-        curPwd: curPwd,
-        name: name
+        curPwd: curPwd
+        
     };
    $.ajax({
         type: 'POST',
         //async : false,
-        url: "/?controller=user&action=update&id=" + postData + "/",
+        url: "/?controller=user&action=update&id=",
         data: postData,
         dataType: 'json',
         success: function (data) {
